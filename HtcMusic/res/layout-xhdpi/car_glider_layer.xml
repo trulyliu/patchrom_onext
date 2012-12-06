@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/glance_overlap_container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:htc="http://schemas.android.com/apk/res/com.htc">
+    <RelativeLayout android:id="@id/car_glance_view" android:layout_width="fill_parent" android:layout_height="@dimen/car_glance_height" android:layout_alignParentBottom="true">
+        <RelativeLayout android:id="@id/glider" android:layout_width="@dimen/car_glance_height" android:layout_height="wrap_content" android:layout_alignParentLeft="true" />
+        <RelativeLayout android:id="@id/playback_view" android:paddingTop="@com.htc:dimen/margin_m" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_toRightOf="@id/glider">
+            <TextView android:ellipsize="end" android:id="@id/track_name" android:paddingLeft="@com.htc:dimen/margin_l" android:paddingRight="@com.htc:dimen/margin_l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentLeft="true" />
+            <TextView android:ellipsize="end" android:id="@id/album_artist_name" android:paddingLeft="@com.htc:dimen/margin_l" android:paddingRight="@com.htc:dimen/margin_l" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_below="@id/track_name" android:layout_alignParentLeft="true" />
+            <RelativeLayout android:id="@id/playback_control" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="55.0px" android:layout_below="@id/album_artist_name">
+                <com.htc.widget.HtcRimImageButton android:textSize="0.0px" android:id="@id/play" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" htc:backgroundMode="dark" />
+                <com.htc.widget.HtcRimImageButton android:textSize="0.0px" android:id="@id/prev" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@com.htc:dimen/margin_m_2" android:layout_toLeftOf="@id/play" android:layout_centerVertical="true" htc:backgroundMode="dark" />
+                <com.htc.widget.HtcRimImageButton android:textSize="0.0px" android:id="@id/next" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@com.htc:dimen/margin_m_2" android:layout_toRightOf="@id/play" android:layout_centerVertical="true" htc:backgroundMode="dark" />
+            </RelativeLayout>
+            <TextView android:id="@id/duration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@com.htc:dimen/margin_xs_2" android:singleLine="true" android:layout_below="@id/playback_control" android:layout_centerHorizontal="true" />
+            <RelativeLayout android:id="@id/options_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@com.htc:dimen/margin_m" android:layout_below="@id/duration">
+                <View android:id="@id/shuffle_repeat_divider" android:layout_width="2.0px" android:layout_height="67.0px" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+                <RelativeLayout android:id="@id/shuffle_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/shuffle_repeat_divider" android:layout_centerInParent="true">
+                    <com.htc.widget.HtcImageButton android:id="@id/shuffle" android:paddingTop="0.0px" android:paddingBottom="0.0px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" htc:backgroundMode="dark" />
+                </RelativeLayout>
+                <RelativeLayout android:id="@id/repeat_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/shuffle_repeat_divider" android:layout_centerInParent="true">
+                    <com.htc.widget.HtcImageButton android:id="@id/repeat" android:paddingTop="0.0px" android:paddingBottom="0.0px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" htc:backgroundMode="dark" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/album_art_gesture" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/car_glance_height" android:layout_alignParentBottom="true">
+        <TextView android:gravity="center" android:id="@id/error_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>

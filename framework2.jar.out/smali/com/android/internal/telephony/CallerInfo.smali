@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/telephony/CallerInfo$CloseCursorThread;
+        Lcom/android/internal/telephony/CallerInfo$CloseCursorThread;,
+        Lcom/android/internal/telephony/CallerInfo$Injector;
     }
 .end annotation
 
@@ -72,6 +73,11 @@
 .field public contactRingtoneUri:Landroid/net/Uri;
 
 .field public date:Ljava/lang/String;
+.field public extra:Lmiui/telephony/ExtraCallerInfo;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field public geoDescription:Ljava/lang/String;
 
@@ -182,6 +188,12 @@
 
     .line 255
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Lmiui/telephony/ExtraCallerInfo;
+
+    invoke-direct {v0}, Lmiui/telephony/ExtraCallerInfo;-><init>()V
+
+    iput-object v0, p0, Lcom/android/internal/telephony/CallerInfo;->extra:Lmiui/telephony/ExtraCallerInfo;
 
     .line 117
     const/4 v0, -0x1
@@ -723,9 +735,11 @@
 
     .line 315
     :cond_6
+    invoke-static {p1}, Lcom/android/internal/telephony/CallerInfo$Injector;->setContactRef(Landroid/net/Uri;)V
+
     const-string v4, "number"
 
-    invoke-interface {p2, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-static {p2, v4}, Lcom/android/internal/telephony/CallerInfo$Injector;->getColumnIndex(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v0
 
@@ -743,7 +757,7 @@
     :cond_7
     const-string v4, "normalized_number"
 
-    invoke-interface {p2, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-static {p2, v4}, Lcom/android/internal/telephony/CallerInfo$Injector;->getColumnIndex(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v0
 
@@ -761,7 +775,7 @@
     :cond_8
     const-string v4, "label"
 
-    invoke-interface {p2, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-static {p2, v4}, Lcom/android/internal/telephony/CallerInfo$Injector;->getColumnIndex(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v0
 
@@ -771,7 +785,7 @@
     .line 329
     const-string v4, "type"
 
-    invoke-interface {p2, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-static {p2, v4}, Lcom/android/internal/telephony/CallerInfo$Injector;->getColumnIndex(Landroid/database/Cursor;Ljava/lang/String;)I
 
     move-result v3
 
@@ -943,6 +957,12 @@
 
     .line 382
     iput-boolean v5, v1, Lcom/android/internal/telephony/CallerInfo;->contactExists:Z
+
+    invoke-static {p0, v1, p2}, Lmiui/telephony/ExtraCallerInfo;->getExtraCallerInfo(Landroid/content/Context;Lcom/android/internal/telephony/CallerInfo;Landroid/database/Cursor;)Lmiui/telephony/ExtraCallerInfo;
+
+    move-result-object v4
+
+    iput-object v4, v1, Lcom/android/internal/telephony/CallerInfo;->extra:Lmiui/telephony/ExtraCallerInfo;
 
     goto/16 :goto_0
 

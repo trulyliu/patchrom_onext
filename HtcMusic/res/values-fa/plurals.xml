@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="Nsongs">
+        <item quantity="other">%d ترانه</item>
+    </plurals>
+    <plurals name="Nalbums">
+        <item quantity="other">%d آلبوم</item>
+        <item quantity="one">1 آلبوم</item>
+    </plurals>
+    <plurals name="NNNtracksdeleted">
+        <item quantity="other">%d ترانه حذف شد</item>
+        <item quantity="one">1 ترانه حذف شد</item>
+    </plurals>
+    <plurals name="NNNtrackstoplaylist">
+        <item quantity="other">%d ترانه به ليست پخش اضافه شد</item>
+        <item quantity="one">1 ترانه به ليست پخش اضافه شد</item>
+    </plurals>
+    <plurals name="NNNtrackstoqueue">
+        <item quantity="other">%d ترانه به صف اضافه شد</item>
+        <item quantity="one">1 ترانه به صف اضافه شد</item>
+    </plurals>
+    <plurals name="htc_NNNdelteplaylists">
+        <item quantity="other">%d لیست پخش حذف شد.</item>
+        <item quantity="one">1 لیست پخش حذف شد.</item>
+    </plurals>
+    <plurals name="htc_NNNremovefromplaylist">
+        <item quantity="other">%d ترانه حذف شد</item>
+        <item quantity="one">1 ترانه حذف شد</item>
+    </plurals>
+</resources>

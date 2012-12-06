@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/UiModeManagerService$SettingsObserver;
+        Lcom/android/server/UiModeManagerService$SettingsObserver;,
+        Lcom/android/server/UiModeManagerService$Injector;
     }
 .end annotation
 
@@ -124,6 +125,12 @@
 
 .field private mNightMode:I
 
+.field mNormalType:I
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field private mNotificationManager:Landroid/app/NotificationManager;
 
 .field private final mResultReceiver:Landroid/content/BroadcastReceiver;
@@ -191,6 +198,7 @@
     .line 434
     invoke-direct {p0}, Landroid/app/IUiModeManager$Stub;-><init>()V
 
+    iput v10, p0, Lcom/android/server/UiModeManagerService;->mNormalType:I
     .line 103
     new-instance v1, Ljava/lang/Object;
 
@@ -454,7 +462,10 @@
 
     invoke-virtual {v1, v3, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 454
+    iget-object v1, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {p0, v1}, Lcom/android/server/UiModeManagerService$Injector;->registerUIModeScaleChangedOjbserver(Lcom/android/server/UiModeManagerService;Landroid/content/Context;)V
+
     const-string v1, "power"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -3014,6 +3025,9 @@
 .method final updateConfigurationLocked(Z)V
     .locals 4
     .parameter "sendIt"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 932
@@ -3072,7 +3086,7 @@
     .line 932
     .end local v1           #uiMode:I
     :cond_2
-    iget v1, p0, Lcom/android/server/UiModeManagerService;->mDefaultUiModeType:I
+    iget v1, p0, Lcom/android/server/UiModeManagerService;->mNormalType:I
 
     goto :goto_0
 

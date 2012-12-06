@@ -290,6 +290,16 @@
     return-object v0
 .end method
 
+.method handleCameraKeyEvent()V
+    .locals 0
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    return-void
+.end method
+
 .method onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 9
     .parameter "keyCode"
@@ -803,6 +813,8 @@
     move-result v3
 
     if-nez v3, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneFallbackEventHandler;->handleCameraKeyEvent()V
 
     goto :goto_0
 

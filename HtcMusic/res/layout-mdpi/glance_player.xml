@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/main_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:htc="http://schemas.android.com/apk/res/com.htc">
+    <RelativeLayout android:id="@id/layout_bottom" android:paddingTop="@com.htc:dimen/leading" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="227.0px" android:layout_alignParentBottom="true">
+        <RelativeLayout android:id="@id/song_panel" android:paddingLeft="@com.htc:dimen/margin_m" android:paddingRight="@com.htc:dimen/margin_m" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@com.htc:dimen/leading">
+            <com.htc.widget.HtcRimImageButton android:id="@id/track_option" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" htc:backgroundMode="dark" />
+            <TextView android:id="@id/track_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@com.htc:dimen/margin_m" android:singleLine="true" android:layout_toLeftOf="@id/track_option" style="@com.htc:style/title_primary_m" />
+            <TextView android:id="@id/album_artist_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@com.htc:dimen/margin_m" android:singleLine="true" android:layout_toLeftOf="@id/track_option" android:layout_below="@id/track_name" style="@com.htc:style/title_secondary_m" />
+            <View android:id="@id/information_seperator" android:background="@com.htc:drawable/common_b_div_land" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginTop="5.0px" android:layout_below="@id/album_artist_name" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/progress_layout" android:paddingLeft="@com.htc:dimen/margin_m" android:paddingRight="@com.htc:dimen/margin_m" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="11.0px" android:layout_below="@id/song_panel" android:layout_centerHorizontal="true">
+            <RelativeLayout android:layout_width="42.0px" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+                <TextView android:id="@id/currenttime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerInParent="true" style="@com.htc:style/time_info_m" />
+            </RelativeLayout>
+            <com.htc.widget.HtcSeekBar android:id="@id/seek" android:paddingLeft="0.0px" android:paddingRight="0.0px" android:layout_width="225.0px" android:layout_height="wrap_content" android:layout_marginLeft="0.0px" android:layout_marginRight="0.0px" android:layout_centerInParent="true" />
+            <RelativeLayout android:layout_width="42.0px" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                <TextView android:id="@id/totaltime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerInParent="true" style="@com.htc:style/time_info_m" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center" android:id="@id/control_panel" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/progress_layout">
+            <com.htc.widget.HtcRimImageButton android:textSize="0.0px" android:id="@id/play" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" htc:backgroundMode="dark" />
+            <com.htc.music.widget.RepeatingImageButton android:textSize="0.0px" android:id="@id/prev" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="22.0px" android:layout_toLeftOf="@id/play" android:layout_centerInParent="true" htc:backgroundMode="dark" />
+            <com.htc.music.widget.RepeatingImageButton android:textSize="0.0px" android:id="@id/next" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="22.0px" android:layout_toRightOf="@id/play" android:layout_centerInParent="true" htc:backgroundMode="dark" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_toLeftOf="@id/prev">
+                <com.htc.widget.HtcImageButton android:id="@id/shuffle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" htc:backgroundMode="dark" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_toRightOf="@id/next" android:layout_centerInParent="true">
+                <com.htc.widget.HtcImageButton android:id="@id/repeat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" htc:backgroundMode="dark" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

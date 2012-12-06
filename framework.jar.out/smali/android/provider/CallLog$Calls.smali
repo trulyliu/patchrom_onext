@@ -102,13 +102,22 @@
 
 .field public static final VOICEMAIL_URI:Ljava/lang/String; = "voicemail_uri"
 
+.field static sExtraCallLogValues:Landroid/content/ContentValues;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
 
     .prologue
-    .line 59
+    const/4 v0, 0x0
+
+    sput-object v0, Landroid/provider/CallLog$Calls;->sExtraCallLogValues:Landroid/content/ContentValues;
+
     const-string v0, "content://call_log/calls"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -384,6 +393,10 @@
     invoke-direct {v0, v4}, Landroid/content/ContentValues;-><init>(I)V
 
     .line 493
+    invoke-static {v0}, Landroid/provider/CallLog$Injector;->getExtraCallLogValues(Landroid/content/ContentValues;)Landroid/content/ContentValues;
+
+    move-result-object v17
+
     .local v17, values:Landroid/content/ContentValues;
     :goto_1
     const-string/jumbo v4, "number"
@@ -796,7 +809,7 @@
 
     .line 593
     .local v16, result:Landroid/net/Uri;
-    invoke-static/range {p1 .. p1}, Landroid/provider/CallLog$Calls;->removeExpiredEntries(Landroid/content/Context;)V
+    invoke-static/range {p1 .. p1}, Landroid/provider/CallLog$Injector;->removeExpiredEntries(Landroid/content/Context;)V
 
     .line 596
     move-object/from16 v0, p0
@@ -1218,5 +1231,18 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
     .line 632
+    return-void
+.end method
+
+.method public static setExtraCallLogValues(Landroid/content/ContentValues;)V
+    .locals 0
+    .parameter "extraCallLogValues"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sput-object p0, Landroid/provider/CallLog$Calls;->sExtraCallLogValues:Landroid/content/ContentValues;
+
     return-void
 .end method

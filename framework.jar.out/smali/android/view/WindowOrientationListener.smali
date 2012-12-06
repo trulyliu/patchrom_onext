@@ -88,7 +88,7 @@
 
     .line 78
     :cond_0
-    const/4 v0, 0x2
+    const/4 v0, 0x3
 
     goto :goto_0
 .end method

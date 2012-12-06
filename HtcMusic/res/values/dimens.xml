@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="car_glance_height">404.0px</dimen>
+    <dimen name="carmode_body_height">620.0px</dimen>
+    <dimen name="carmode_divider_height">3.0px</dimen>
+    <dimen name="mini_cover_size">86.0px</dimen>
+    <dimen name="mini_image_size">78.0px</dimen>
+    <dimen name="mini_margin_left">3.0px</dimen>
+    <dimen name="mini_padding_left">4.0px</dimen>
+    <dimen name="mini_padding_right">4.0px</dimen>
+    <dimen name="mini_padding_top">2.0px</dimen>
+    <dimen name="mini_padding_bottom">6.0px</dimen>
+    <dimen name="max_notification_albumart_side_len">98.0dip</dimen>
+    <dimen name="margin_top_p">@com.htc:dimen/spacing_2</dimen>
+    <dimen name="margin_bottom_p">0.0px</dimen>
+    <dimen name="margin_left_p">@com.htc:dimen/margin_l</dimen>
+    <dimen name="margin_right_p">@com.htc:dimen/margin_l</dimen>
+    <dimen name="margin_top_l">@com.htc:dimen/leading_2</dimen>
+    <dimen name="margin_bottom_l">@com.htc:dimen/spacing_2</dimen>
+    <dimen name="margin_left_l">@com.htc:dimen/margin_l</dimen>
+    <dimen name="margin_right_l">@com.htc:dimen/margin_l</dimen>
+    <dimen name="font_size">0.0px</dimen>
+    <dimen name="line_height">0.0px</dimen>
+</resources>

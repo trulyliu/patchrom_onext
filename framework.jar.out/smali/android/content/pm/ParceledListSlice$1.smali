@@ -133,6 +133,8 @@
 
     invoke-direct {v5, v3, v6, v0, v7}, Landroid/content/pm/ParceledListSlice;-><init>(Landroid/os/Parcel;IZLandroid/content/pm/ParceledListSlice$1;)V
 
+    invoke-virtual {v5, v0}, Landroid/content/pm/ParceledListSlice;->setLastSlice(Z)V
+
     goto :goto_1
 .end method
 

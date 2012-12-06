@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/icon" android:layout_width="@dimen/max_notification_albumart_side_len" android:layout_height="@dimen/max_notification_albumart_side_len" android:layout_margin="10.0dip" android:scaleType="fitXY" />
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textStyle="bold" android:ellipsize="end" android:layout_gravity="left" android:id="@id/trackname" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dip" android:singleLine="true" style="@com.htc:style/title_primary_m" />
+        <TextView android:ellipsize="end" android:layout_gravity="left" android:id="@id/artistalbum" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dip" android:singleLine="true" style="@com.htc:style/title_secondary_m" />
+        <LinearLayout android:layout_gravity="left" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="50.0dip" android:layout_marginTop="6.0dip">
+            <ImageView android:layout_gravity="center" android:id="@id/prevbtn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:scaleType="centerInside" />
+            <ImageView android:layout_gravity="center" android:id="@id/playpausebtn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:scaleType="centerInside" />
+            <ImageView android:layout_gravity="center" android:id="@id/nextbtn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerInside" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

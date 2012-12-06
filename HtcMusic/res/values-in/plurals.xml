@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="Nsongs">
+        <item quantity="other">%d lagu</item>
+    </plurals>
+    <plurals name="Nalbums">
+        <item quantity="other">%d album</item>
+        <item quantity="one">1 album</item>
+    </plurals>
+    <plurals name="NNNtracksdeleted">
+        <item quantity="other">%d lagu dihapus</item>
+        <item quantity="one">1 lagu telah dihapus</item>
+    </plurals>
+    <plurals name="NNNtrackstoplaylist">
+        <item quantity="other">%d lagu yang ditambahkan ke daftar putar</item>
+        <item quantity="one">1 lagu yang ditambahkan ke daftar putar</item>
+    </plurals>
+    <plurals name="NNNtrackstoqueue">
+        <item quantity="other">%d lagu yang ditambahkan ke Antrean</item>
+        <item quantity="one">1 lagu yang ditambahkan ke Antrean</item>
+    </plurals>
+    <plurals name="htc_NNNdelteplaylists">
+        <item quantity="other">%d daftar putar dihapus.</item>
+        <item quantity="one">1 daftar putar dihapus.</item>
+    </plurals>
+    <plurals name="htc_NNNremovefromplaylist">
+        <item quantity="other">%d lagu dihapus</item>
+        <item quantity="one">1 lagu dihapus</item>
+    </plurals>
+</resources>

@@ -7,7 +7,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/internal/telephony/gsm/SIMRecords$1;,
-        Lcom/android/internal/telephony/gsm/SIMRecords$Get_Spn_Fsm_State;
+        Lcom/android/internal/telephony/gsm/SIMRecords$Get_Spn_Fsm_State;,
+        Lcom/android/internal/telephony/gsm/SIMRecords$Injector;
     }
 .end annotation
 
@@ -1321,9 +1322,9 @@
     iput-object v1, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->mVmConfig:Lcom/android/internal/telephony/gsm/VoiceMailConstants;
 
     .line 440
-    new-instance v1, Lcom/android/internal/telephony/gsm/SpnOverride;
+    new-instance v1, Lcom/android/internal/telephony/gsm/MiuiSpnOverrideImpl;
 
-    invoke-direct {v1}, Lcom/android/internal/telephony/gsm/SpnOverride;-><init>()V
+    invoke-direct {v1}, Lcom/android/internal/telephony/gsm/MiuiSpnOverrideImpl;-><init>()V
 
     iput-object v1, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->mSpnOverride:Lcom/android/internal/telephony/gsm/SpnOverride;
 
@@ -3534,7 +3535,7 @@
 
     move-result-object v5
 
-    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {p0, p1, v5}, Lcom/android/internal/telephony/gsm/SIMRecords$Injector;->isMatchingOperator(Lcom/android/internal/telephony/gsm/SIMRecords;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v5
 
@@ -3920,6 +3921,9 @@
 .method private setSpnFromConfig(Ljava/lang/String;)V
     .locals 1
     .parameter "carrier"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 3203
@@ -3943,6 +3947,8 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->spn:Ljava/lang/String;
+
+    invoke-static {p0}, Lcom/android/internal/telephony/gsm/SIMRecords$Injector;->updateSpnDisplayCondition(Lcom/android/internal/telephony/gsm/SIMRecords;)V
 
     .line 3206
     :cond_0
@@ -5829,6 +5835,18 @@
     move-result-object v1
 
     goto :goto_0
+.end method
+
+.method getSpn()Ljava/lang/String;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->spn:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public getSubsidyLock(ILandroid/os/Message;)V

@@ -10,7 +10,8 @@
         Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;,
         Lcom/android/internal/telephony/CallerInfoAsyncQuery$QueryPoolException;,
         Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;,
-        Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;
+        Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;,
+        Lcom/android/internal/telephony/CallerInfoAsyncQuery$Injector;
     }
 .end annotation
 
@@ -335,7 +336,11 @@
     :cond_5
     sget-object v6, Landroid/provider/ContactsContract$PhoneLookup;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
-    invoke-static {p0}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/CallerInfoAsyncQuery$Injector;->getPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 

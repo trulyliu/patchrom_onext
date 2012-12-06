@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="list_primary_m" parent="@com.htc:style/list_primary_m">
+        <item name="android:textSize">52.0px</item>
+    </style>
+    <style name="list_secondary_m" parent="@com.htc:style/list_secondary_m">
+        <item name="android:textSize">44.0px</item>
+    </style>
+</resources>

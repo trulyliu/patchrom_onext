@@ -37,7 +37,8 @@
         Landroid/view/View$DragShadowBuilder;,
         Landroid/view/View$OnLayoutChangeListener;,
         Landroid/view/View$ListenerInfo;,
-        Landroid/view/View$TransformationInfo;
+        Landroid/view/View$TransformationInfo;,
+        Landroid/view/View$Injector;
     }
 .end annotation
 
@@ -719,6 +720,12 @@
 .field private mDrawingCacheBackgroundColor:I
 
 .field private mFloatingTreeObserver:Landroid/view/ViewTreeObserver;
+
+.field mHapticEnabledExplicitly:Z
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field private mHardwareLayer:Landroid/view/HardwareLayer;
 
@@ -2050,6 +2057,9 @@
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 3312
@@ -2875,6 +2885,20 @@
 
     .line 3500
     :pswitch_23
+    const/16 v41, 0x0
+
+    move/from16 v0, v41
+
+    invoke-virtual {v6, v7, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v41
+
+    move/from16 v0, v41
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Landroid/view/View;->mHapticEnabledExplicitly:Z
+
     const/16 v41, 0x1
 
     move/from16 v0, v41
@@ -25519,6 +25543,8 @@
 
     .line 8177
     :cond_a
+    invoke-static {p0}, Landroid/view/View$Injector;->performHapticFeedbackOnRelease(Landroid/view/View;)V
+
     iget-object v7, p0, Landroid/view/View;->mPerformClick:Landroid/view/View$PerformClick;
 
     invoke-virtual {p0, v7}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
@@ -25670,6 +25696,8 @@
 
     .line 8230
     invoke-direct {p0, v7}, Landroid/view/View;->checkForLongClick(I)V
+
+    invoke-static {p0}, Landroid/view/View$Injector;->performHapticFeedbackOnDown(Landroid/view/View;)V
 
     goto/16 :goto_1
 
@@ -26732,6 +26760,9 @@
     .locals 3
     .parameter "feedbackConstant"
     .parameter "flags"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v0, 0x0
@@ -26748,6 +26779,12 @@
 
     .line 15729
     :cond_1
+    invoke-static {p0, p2}, Landroid/view/View$Injector;->isHapticEnabledExplictly(Landroid/view/View;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
     and-int/lit8 v1, p2, 0x1
 
     if-nez v1, :cond_2
@@ -31176,6 +31213,9 @@
 .method public setHapticFeedbackEnabled(Z)V
     .locals 2
     .parameter "hapticFeedbackEnabled"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/high16 v1, 0x1000
@@ -31188,7 +31228,8 @@
     :goto_0
     invoke-virtual {p0, v0, v1}, Landroid/view/View;->setFlags(II)V
 
-    .line 5688
+    iput-boolean p1, p0, Landroid/view/View;->mHapticEnabledExplicitly:Z
+
     return-void
 
     .line 5687

@@ -15,7 +15,8 @@
     value = {
         Landroid/app/Activity$ManagedCursor;,
         Landroid/app/Activity$NonConfigurationInstances;,
-        Landroid/app/Activity$ManagedDialog;
+        Landroid/app/Activity$ManagedDialog;,
+        Landroid/app/Activity$Injector;
     }
 .end annotation
 
@@ -2802,6 +2803,18 @@
     return v0
 .end method
 
+.method getToken()Landroid/os/IBinder;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Landroid/app/Activity;->mToken:Landroid/os/IBinder;
+
+    return-object v0
+.end method
+
 .method public final getVolumeControlStream()I
     .locals 1
 
@@ -5583,6 +5596,7 @@
     .line 1114
     invoke-static {p0, v1}, Lcom/htc/autotest/Recorder;->dumpShowActivity(Ljava/lang/Object;Z)V
 
+    invoke-static {p0}, Landroid/app/Activity$Injector;->checkAccessControl(Landroid/app/Activity;)V
     .line 1116
     return-void
 .end method

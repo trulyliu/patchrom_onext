@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="car_glance_adapter_translate_x">
+        <item>-400</item>
+        <item>0</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="car_glance_adapter_translate_y">
+        <item>-325</item>
+        <item>-464</item>
+        <item>-325</item>
+    </integer-array>
+    <integer-array name="car_glance_adapter_scale">
+        <item>70</item>
+        <item>100</item>
+        <item>70</item>
+    </integer-array>
+    <integer-array name="car_glance_adapter_rotate_x">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="car_glance_adapter_rotate_y">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="car_glance_adapter_alpha">
+        <item>0</item>
+        <item>255</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="glance_adapter_translate_x">
+        <item>-600</item>
+        <item>0</item>
+        <item>600</item>
+    </integer-array>
+    <integer-array name="glance_adapter_translate_y">
+        <item>-75</item>
+        <item>-237</item>
+        <item>-75</item>
+    </integer-array>
+    <integer-array name="glance_adapter_scale">
+        <item>70</item>
+        <item>100</item>
+        <item>70</item>
+    </integer-array>
+    <integer-array name="glance_adapter_rotate_x">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="glance_adapter_rotate_y">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="glance_adapter_alpha">
+        <item>0</item>
+        <item>255</item>
+        <item>0</item>
+    </integer-array>
+</resources>

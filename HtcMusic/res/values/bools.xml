@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="lyrics_support_scroll">true</bool>
+    <bool name="lyrics_support_seek">false</bool>
+    <bool name="lyrics_view_transparent">true</bool>
+    <bool name="lyrics_auto_scroll">true</bool>
+    <bool name="lyrics_divider_visible">false</bool>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingLeft="@com.htc:dimen/margin_m" android:paddingTop="@com.htc:dimen/leading" android:paddingRight="@com.htc:dimen/margin_m" android:paddingBottom="@com.htc:dimen/leading" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/seekbar_popup_txt" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@com.htc:style/automotive_darklist_primary_xs" />
+</FrameLayout>

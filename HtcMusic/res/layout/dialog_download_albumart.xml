@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.htc.widget.HtcListView android:id="@id/update_all" android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:music="http://schemas.android.com/apk/res/com.htc.music"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

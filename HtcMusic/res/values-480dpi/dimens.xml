@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="car_glance_height">928.0px</dimen>
+    <dimen name="carmode_body_height">928.0px</dimen>
+    <dimen name="carmode_divider_height">2.0px</dimen>
+    <dimen name="mini_cover_size">174.0px</dimen>
+    <dimen name="mini_image_size">156.0px</dimen>
+    <dimen name="mini_margin_left">7.0px</dimen>
+    <dimen name="mini_padding_left">9.0px</dimen>
+    <dimen name="mini_padding_right">9.0px</dimen>
+    <dimen name="mini_padding_top">9.0px</dimen>
+    <dimen name="mini_padding_bottom">9.0px</dimen>
+</resources>

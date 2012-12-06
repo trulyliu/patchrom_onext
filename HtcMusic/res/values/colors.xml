@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#ff000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="color_now_playing">#ddcc2b94</color>
+    <color name="color_current_scroll">#ff64a519</color>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="automative_common_b_transport_outer">@android:drawable/btn_default_small</drawable>
+    <drawable name="automative_common_b_transport_rest">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_common_b_transport_large_outer">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_common_b_transport_large_pressed">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_common_b_transport_large_rest">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_common_b_transport_pressed">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_beats_logo_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_beats_logo_on">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_equalizer_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_next_song_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_pause_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_play_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_previous_song_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_repeat_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_repeat_one_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_search_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_shuffle_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_icon_btn_speaker_on_dark">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_music_album_stack">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_music_all_album_default">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_music_detail_album_default">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_music_detail_album_default_shadow">@android:drawable/btn_default_small</drawable>
+    <drawable name="automotive_music_playing_album_default">@android:drawable/btn_default_small</drawable>
+    <drawable name="common_popupmenu_arrow_land">@android:drawable/btn_default_small</drawable>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="onlineMusicBrowseBy">
+        <item>Uued publikatsioonid</item>
+        <item>100 populaarsemat albumit</item>
+        <item>100 populaarsemat laulu</item>
+        <item>Kanalid</item>
+    </string-array>
+    <string-array name="online_genres">
+        <item>Alternatiivne</item>
+        <item>Dance &amp;amp; House</item>
+        <item>Elektrooniline</item>
+        <item>Džäss</item>
+        <item>Pop</item>
+        <item>R&amp;amp;B</item>
+        <item>Räpp</item>
+        <item>Rokk</item>
+    </string-array>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/centerPanel" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:htc="http://schemas.android.com/apk/res/com.htc">
+    <RelativeLayout android:id="@id/album_block" android:paddingLeft="@com.htc:dimen/margin_m" android:paddingTop="@com.htc:dimen/margin_m" android:paddingBottom="@com.htc:dimen/margin_m" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/albumart" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/centerRight" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@com.htc:dimen/margin_xs" android:layout_toRightOf="@id/album_block">
+        <TextView android:ellipsize="end" android:id="@id/line1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@com.htc:dimen/margin_l" android:layout_marginRight="@com.htc:dimen/margin_l" android:singleLine="true" style="@style/list_primary_m" />
+        <TextView android:ellipsize="end" android:id="@id/line2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@com.htc:dimen/margin_l" android:layout_marginTop="36.0px" android:layout_marginRight="@com.htc:dimen/margin_l" android:singleLine="true" style="@style/list_secondary_m" />
+        <com.htc.widget.HtcSeekBar android:id="@id/progress" android:paddingLeft="0.0px" android:paddingRight="0.0px" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@com.htc:dimen/spacing" android:layout_marginTop="14.0px" android:layout_marginRight="@com.htc:dimen/spacing" android:layout_below="@id/line2"
+          xmlns:seekbar="http://schemas.android.com/apk/res/com.htc" />
+        <TextView android:id="@id/currenttime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@com.htc:dimen/margin_l" android:layout_below="@id/progress" style="@com.htc:style/list_secondary_xxs" />
+        <TextView android:id="@id/totaltime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@com.htc:dimen/margin_l" android:layout_below="@id/progress" android:layout_alignParentRight="true" style="@com.htc:style/list_secondary_xxs" />
+    </RelativeLayout>
+</RelativeLayout>

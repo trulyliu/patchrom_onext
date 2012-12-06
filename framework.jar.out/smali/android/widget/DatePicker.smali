@@ -7,7 +7,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/widget/DatePicker$SavedState;,
-        Landroid/widget/DatePicker$OnDateChangedListener;
+        Landroid/widget/DatePicker$OnDateChangedListener;,
+        Landroid/widget/DatePicker$OnDateChangeListener;
     }
 .end annotation
 
@@ -117,6 +118,9 @@
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 149
@@ -262,6 +266,14 @@
 
     .line 209
     .local v10, onChangeListener:Landroid/widget/NumberPicker$OnValueChangeListener;
+    new-instance v10, Landroid/widget/DatePicker$OnDateChangeListener;
+
+    .end local v10           #onChangeListener:Landroid/widget/NumberPicker$OnValueChangeListener;
+    move-object/from16 v0, p0
+
+    invoke-direct {v10, v0}, Landroid/widget/DatePicker$OnDateChangeListener;-><init>(Landroid/widget/DatePicker;)V
+
+    .restart local v10       #onChangeListener:Landroid/widget/NumberPicker$OnValueChangeListener;
     const v13, 0x102026e
 
     move-object/from16 v0, p0

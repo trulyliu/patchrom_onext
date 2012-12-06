@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:htc="http://schemas.android.com/apk/res/com.htc">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/mini_player_thumb" android:background="@drawable/music_minplay_nocover" android:paddingLeft="@dimen/mini_padding_left" android:paddingTop="@dimen/mini_padding_top" android:paddingRight="@dimen/mini_padding_right" android:paddingBottom="@dimen/mini_padding_bottom" android:layout_width="@dimen/mini_cover_size" android:layout_height="@dimen/mini_cover_size" />
+    <com.htc.music.widget.MiniPlayer2LineText android:id="@id/mini_player_description" android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    <com.htc.widget.HtcRimImageButton android:layout_gravity="center_vertical" android:id="@id/mini_player_play_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" htc:backgroundMode="dark" />
+</LinearLayout>

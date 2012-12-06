@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/internal/telephony/cdma/CdmaConnection$1;,
-        Lcom/android/internal/telephony/cdma/CdmaConnection$MyHandler;
+        Lcom/android/internal/telephony/cdma/CdmaConnection$MyHandler;,
+        Lcom/android/internal/telephony/cdma/CdmaConnection$Injector;
     }
 .end annotation
 
@@ -1283,7 +1284,8 @@
     :cond_3
     sget-object v1, Lcom/android/internal/telephony/Connection$PostDialState;->PAUSE:Lcom/android/internal/telephony/Connection$PostDialState;
 
-    iput-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->postDialState:Lcom/android/internal/telephony/Connection$PostDialState;
+    #iput-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->postDialState:Lcom/android/internal/telephony/Connection$PostDialState;
+    invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaConnection$Injector;->setPostDialState(Lcom/android/internal/telephony/cdma/CdmaConnection;Lcom/android/internal/telephony/Connection$PostDialState;)V
 
     .line 820
     iget v1, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->nextPostDialChar:I
@@ -2188,6 +2190,9 @@
 
 .method public getRemainingPostDialString()Ljava/lang/String;
     .locals 6
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v5, 0x0
@@ -2240,7 +2245,11 @@
 
     .line 859
     .local v1, subStr:Ljava/lang/String;
-    if-eqz v1, :cond_1
+    invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaConnection$Injector;->nullifyString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
 
     .line 860
     const/16 v3, 0x77

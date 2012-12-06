@@ -6,6 +6,14 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/internal/telephony/AdnRecord$Injector;
+    }
+.end annotation
+
+
 # static fields
 .field static final ADN_BCD_NUMBER_LENGTH:I = 0x0
 
@@ -42,7 +50,7 @@
 
 .field static final MAX_EXT_CALLED_PARTY_LENGTH:I = 0xa
 
-.field static final MAX_NUMBER_SIZE_BYTES:I = 0xb
+.field static final MAX_NUMBER_SIZE_BYTES:I = 0xff
 
 
 # instance fields
@@ -255,6 +263,9 @@
 .method private parseRecord([B)V
     .locals 6
     .parameter "record"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v5, 0x0
@@ -286,7 +297,7 @@
 
     .line 321
     .local v2, numberLength:I
-    const/16 v3, 0xb
+    const/16 v3, 0xff
 
     if-le v2, v3, :cond_0
 
@@ -344,6 +355,10 @@
     const-string v3, "GSM"
 
     const-string v4, "Error parsing AdnRecord"
+
+    invoke-static {p0, v4}, Lcom/android/internal/telephony/AdnRecord$Injector;->adnRecordError(Lcom/android/internal/telephony/AdnRecord;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -689,7 +704,11 @@
     :goto_2
     array-length v7, v2
 
-    invoke-static {v2, v10, v0, v10, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v10, v0, v10, v7}, Lcom/android/internal/telephony/AdnRecord$Injector;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    iget-object v7, p0, Lcom/android/internal/telephony/AdnRecord;->alphaTag:Ljava/lang/String;
+
+    invoke-static {v0, v7, v4}, Lcom/android/internal/telephony/MiuiAdnUtils;->encodeAlphaTag([BLjava/lang/String;I)Z
 
     goto :goto_1
 

@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker$5;
+        Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker$5;,
+        Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker$LocaleChangedIntentReceiver;
     }
 .end annotation
 
@@ -166,6 +167,12 @@
 .field private mHtcContext:Landroid/content/Context;
 
 .field mIntentReceiver:Landroid/content/BroadcastReceiver;
+
+.field mIntentReceiver_miui:Landroid/content/BroadcastReceiver;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field private mIsInPrl:Z
 
@@ -362,6 +369,12 @@
     invoke-direct {p0}, Lcom/android/internal/telephony/ServiceStateTracker;-><init>()V
 
     .line 127
+    new-instance v4, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker$LocaleChangedIntentReceiver;
+
+    invoke-direct {v4, p0}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker$LocaleChangedIntentReceiver;-><init>(Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;)V
+
+    iput-object v4, p0, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mIntentReceiver_miui:Landroid/content/BroadcastReceiver;
+
     iput v6, p0, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mCurrentOtaspMode:I
 
     .line 135
@@ -958,6 +971,8 @@
 
     .line 495
     :goto_4
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->monitorLocaleChange()V
+
     return-void
 
     .end local v0           #airplaneMode:I
@@ -11909,6 +11924,35 @@
         :pswitch_8
         :pswitch_9
     .end packed-switch
+.end method
+
+.method monitorLocaleChange()V
+    .locals 3
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    new-instance v0, Landroid/content/IntentFilter;
+
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+
+    .local v0, filter:Landroid/content/IntentFilter;
+    const-string v1, "android.intent.action.LOCALE_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->phone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+
+    invoke-virtual {v1}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mIntentReceiver_miui:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    return-void
 .end method
 
 .method protected handlePollStateResult(ILandroid/os/AsyncResult;)V

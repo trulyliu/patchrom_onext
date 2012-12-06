@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<idlescreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <skip_unlock>1</skip_unlock>
+    <delay_timeout>2000</delay_timeout>
+    <delay_intent_action>com.htc.music.enablekeyguard</delay_intent_action>
+    <start_intent>#Intent;action=com.htc.music.lockscreen_start;B.from-lockscreen=true;end</start_intent>
+    <redirect_activity>#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.htc.music/.browserlayer.MusicBrowserTabActivity;B.from-lockscreen=true;end</redirect_activity>
+</idlescreen>

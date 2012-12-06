@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="glance_adapter_translate_x">
+        <item>-150</item>
+        <item>0</item>
+        <item>150</item>
+    </integer-array>
+    <integer-array name="glance_adapter_translate_y">
+        <item>17</item>
+        <item>-25</item>
+        <item>17</item>
+    </integer-array>
+    <integer-array name="glance_adapter_scale">
+        <item>60</item>
+        <item>100</item>
+        <item>60</item>
+    </integer-array>
+    <integer-array name="glance_adapter_rotate_x">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="glance_adapter_rotate_y">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="glance_adapter_alpha">
+        <item>0</item>
+        <item>255</item>
+        <item>0</item>
+    </integer-array>
+</resources>

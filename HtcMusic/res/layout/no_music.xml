@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/emptyLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:gravity="center" android:id="@id/emptyText" android:padding="@com.htc:dimen/margin_m" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@com.htc:style/b_button_primary_m" />
+    <ImageView android:id="@id/appendix_icon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+</RelativeLayout>

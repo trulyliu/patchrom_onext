@@ -55,14 +55,17 @@
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 1
     .parameter "unused"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
-    .line 173
     iget-object v0, p0, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 174
+    invoke-static {p1}, Lcom/android/server/pm/ShutdownThread$Injector;->onDismiss(Landroid/content/DialogInterface;)V
+
     return-void
 .end method
 

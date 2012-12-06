@@ -8,7 +8,8 @@
     value = {
         Lcom/android/internal/telephony/gsm/GSMPhone$3;,
         Lcom/android/internal/telephony/gsm/GSMPhone$PendingOperation;,
-        Lcom/android/internal/telephony/gsm/GSMPhone$NetworkSelectMessage;
+        Lcom/android/internal/telephony/gsm/GSMPhone$NetworkSelectMessage;,
+	Lcom/android/internal/telephony/gsm/GSMPhone$Injector;
     }
 .end annotation
 
@@ -3628,7 +3629,10 @@
     .end annotation
 
     .prologue
-    .line 925
+    const/16 v0, 0xf
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/gsm/GSMPhone;->removeMessages(I)V
+
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mCT:Lcom/android/internal/telephony/gsm/GsmCallTracker;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmCallTracker;->acceptCall()V
@@ -5834,9 +5838,19 @@
 
 .method public getDeviceId()Ljava/lang/String;
     .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
-    .line 1494
+    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mImei:Ljava/lang/String;
+
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/gsm/GSMPhone$Injector;->checkEmptyImei(Lcom/android/internal/telephony/gsm/GSMPhone;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mImei:Ljava/lang/String;
+
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mImei:Ljava/lang/String;
 
     return-object v0

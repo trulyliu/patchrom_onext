@@ -30,7 +30,8 @@
         Landroid/widget/AbsListView$SavedState;,
         Landroid/widget/AbsListView$SelectionBoundsAdjuster;,
         Landroid/widget/AbsListView$OnScrollListener;,
-        Landroid/widget/AbsListView$IntroAnimationListener;
+        Landroid/widget/AbsListView$IntroAnimationListener;,
+        Landroid/widget/AbsListView$Injector;
     }
 .end annotation
 
@@ -329,6 +330,18 @@
 
 .field private mTouchModeReset:Ljava/lang/Runnable;
 
+.field mTouchPaddingLeft:I
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
+.field mTouchPaddingRight:I
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field private mTouchSlop:I
 
 .field private mTranscriptMode:I
@@ -371,7 +384,10 @@
     .line 803
     invoke-direct {p0, p1}, Landroid/widget/AdapterView;-><init>(Landroid/content/Context;)V
 
-    .line 233
+    iput v2, p0, Landroid/widget/AbsListView;->mTouchPaddingLeft:I
+
+    iput v2, p0, Landroid/widget/AbsListView;->mTouchPaddingRight:I
+
     iput v2, p0, Landroid/widget/AbsListView;->mChoiceMode:I
 
     .line 266
@@ -529,7 +545,14 @@
     .line 817
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/AdapterView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 233
+    const/4 v9, 0x0
+
+    iput v9, p0, Landroid/widget/AbsListView;->mTouchPaddingLeft:I
+
+    const/4 v9, 0x0
+
+    iput v9, p0, Landroid/widget/AbsListView;->mTouchPaddingRight:I
+
     const/4 v9, 0x0
 
     iput v9, p0, Landroid/widget/AbsListView;->mChoiceMode:I
@@ -10062,16 +10085,28 @@
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 29
     .parameter "ev"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
-    .line 3479
+    invoke-static/range {p0 .. p1}, Landroid/widget/AbsListView$Injector;->isOutOfTouchRange(Landroid/widget/AbsListView;Landroid/view/MotionEvent;)Z
+
+    move-result v26
+
+    if-eqz v26, :cond_ff
+
+    const/16 v26, 0x1
+
+    return v26
+
+    :cond_ff
     invoke-virtual/range {p0 .. p0}, Landroid/widget/AbsListView;->isEnabled()Z
 
     move-result v26
 
     if-nez v26, :cond_2
 
-    .line 3482
     invoke-virtual/range {p0 .. p0}, Landroid/widget/AbsListView;->isClickable()Z
 
     move-result v26
@@ -16172,6 +16207,22 @@
     iput-boolean p1, p0, Landroid/widget/AbsListView;->mTextFilterEnabled:Z
 
     .line 1648
+    return-void
+.end method
+
+.method public setTouchPadding(II)V
+    .locals 0
+    .parameter "paddingLeft"
+    .parameter "paddingRight"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iput p1, p0, Landroid/widget/AbsListView;->mTouchPaddingLeft:I
+
+    iput p2, p0, Landroid/widget/AbsListView;->mTouchPaddingRight:I
+
     return-void
 .end method
 

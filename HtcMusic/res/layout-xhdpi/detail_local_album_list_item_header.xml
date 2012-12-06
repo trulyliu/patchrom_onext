@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:htc="http://schemas.android.com/apk/res/com.htc">
+    <RelativeLayout android:id="@id/album_block" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <RelativeLayout android:padding="@com.htc:dimen/margin_m_2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/album_art" android:background="@drawable/music_album_nocover" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <ImageView android:id="@id/albumCover" android:background="@drawable/music_detail_song_cover" android:visibility="invisible" android:layout_width="246.0px" android:layout_height="256.0px" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@com.htc:dimen/margin_l_2" android:layout_toRightOf="@id/album_block">
+        <TextView android:ellipsize="end" android:id="@id/track_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@com.htc:style/darklist_secondary_m" />
+        <TextView android:ellipsize="end" android:id="@id/release_year" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@com.htc:dimen/leading" android:singleLine="true" style="@com.htc:style/darklist_secondary_m" />
+        <TextView android:ellipsize="end" android:id="@id/genre_type" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@com.htc:dimen/leading" android:singleLine="true" style="@com.htc:style/darklist_secondary_m" />
+    </LinearLayout>
+    <com.htc.widget.HtcRimImageButton android:id="@id/share_on" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@com.htc:dimen/margin_m" android:layout_marginTop="@com.htc:dimen/margin_m_2" android:layout_marginRight="@com.htc:dimen/margin_m" android:layout_alignParentRight="true" htc:backgroundMode="dark" />
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="Nsongs">
+        <item quantity="other">%dเพลง</item>
+    </plurals>
+    <plurals name="Nalbums">
+        <item quantity="other">%dอัลบั้มหลายอัลบั้ม</item>
+        <item quantity="one">1 อัลบั้ม</item>
+    </plurals>
+    <plurals name="NNNtracksdeleted">
+        <item quantity="other">%dเพลงถูกลบ</item>
+        <item quantity="one">1 เพลงถูกลบ</item>
+    </plurals>
+    <plurals name="NNNtrackstoplaylist">
+        <item quantity="other">%d เพลงถูกเพิ่มเข้าไปในรายการแล้ว</item>
+        <item quantity="one">1 เพลงถูกเพิ่มเติมลงในรายการเพลง</item>
+    </plurals>
+    <plurals name="NNNtrackstoqueue">
+        <item quantity="other">%d เพลง ถูกเพิ่มไปยังคิว</item>
+        <item quantity="one">1 เพลง ถูกเพิ่มไปยังคิว</item>
+    </plurals>
+    <plurals name="htc_NNNdelteplaylists">
+        <item quantity="other">%d รายการที่เล่นถูกลบแล้ว</item>
+        <item quantity="one">1 รายการเพลงถูกลบ</item>
+    </plurals>
+    <plurals name="htc_NNNremovefromplaylist">
+        <item quantity="other">%dเพลงถูกเอาออกแล้ว</item>
+        <item quantity="one">1 เพลงถูกลบออกไป</item>
+    </plurals>
+</resources>

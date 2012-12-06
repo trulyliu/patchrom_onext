@@ -4,7 +4,12 @@
 
 # interfaces
 .implements Landroid/telephony/HtcIfTelephonyManager;
-
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/telephony/TelephonyManager$Injector;
+    }
+.end annotation
 
 # static fields
 .field public static final ACTION_PHONE_STATE_CHANGED:Ljava/lang/String; = "android.intent.action.PHONE_STATE"
@@ -392,6 +397,18 @@
     move-result-object v0
 
     check-cast v0, Landroid/telephony/TelephonyManager;
+
+    return-object v0
+.end method
+
+.method static getContext()Landroid/content/Context;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sget-object v0, Landroid/telephony/TelephonyManager;->sContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -4831,12 +4848,19 @@
 
 .method public getSimOperator()Ljava/lang/String;
     .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 857
     const-string v0, "gsm.sim.operator.numeric"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/telephony/TelephonyManager$Injector;->getSimOperator(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

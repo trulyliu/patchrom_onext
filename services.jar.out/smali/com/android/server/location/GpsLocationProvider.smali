@@ -11,7 +11,8 @@
     value = {
         Lcom/android/server/location/GpsLocationProvider$GpsLocationProviderThread;,
         Lcom/android/server/location/GpsLocationProvider$ProviderHandler;,
-        Lcom/android/server/location/GpsLocationProvider$Listener;
+        Lcom/android/server/location/GpsLocationProvider$Listener;,
+        Lcom/android/server/location/GpsLocationProvider$Injector;
     }
 .end annotation
 
@@ -5317,6 +5318,8 @@
     .line 1537
     move-object/from16 v0, p0
 
+    invoke-static {v0, v8}, Lcom/android/server/location/GpsLocationProvider$Injector;->appendUidExtra(Lcom/android/server/location/GpsLocationProvider;Landroid/content/Intent;)V
+
     iget-object v15, v0, Lcom/android/server/location/GpsLocationProvider;->mContext:Landroid/content/Context;
 
     invoke-virtual {v15, v8}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
@@ -7118,6 +7121,18 @@
     return v0
 .end method
 
+.method getClientUids()Landroid/util/SparseIntArray;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider;->mClientUids:Landroid/util/SparseIntArray;
+
+    return-object v0
+.end method
+
 .method public getGpsStatusProvider()Landroid/location/IGpsStatusProvider;
     .locals 1
 
@@ -7274,6 +7289,18 @@
     const-string v0, "gps"
 
     return-object v0
+.end method
+
+.method getNavigating()Z
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-boolean v0, p0, Lcom/android/server/location/GpsLocationProvider;->mNavigating:Z
+
+    return v0
 .end method
 
 .method public getNetInitiatedListener()Landroid/location/INetInitiatedListener;

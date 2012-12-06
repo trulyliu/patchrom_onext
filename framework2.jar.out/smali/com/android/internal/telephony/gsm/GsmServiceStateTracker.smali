@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$4;
+        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$4;,
+        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;
     }
 .end annotation
 
@@ -5019,7 +5020,11 @@
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1824
-    if-nez v24, :cond_28
+    invoke-static/range {v24 .. v24}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v34
+
+    if-eqz v34, :cond_28
 
     .line 1826
     :cond_f
@@ -15689,6 +15694,10 @@
     .line 1059
     invoke-virtual {v5}, Lcom/android/internal/telephony/gsm/SIMRecords;->getServiceProviderName()Ljava/lang/String;
 
+    move-result-object v5
+
+    invoke-static {p0, v5}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;->getSpn(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;Ljava/lang/String;)Ljava/lang/String;
+
     move-result-object v6
 
     .line 1063
@@ -15696,6 +15705,10 @@
     iget-object v9, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
     invoke-virtual {v9}, Landroid/telephony/ServiceState;->getOperatorAlphaLong()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {p0, v9}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;->getPlmn(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 

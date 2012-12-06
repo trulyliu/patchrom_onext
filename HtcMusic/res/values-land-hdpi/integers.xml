@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="glance_image_width">256</integer>
+    <integer name="glance_image_height">256</integer>
+    <integer name="glance_sprite_width">422</integer>
+    <integer name="glance_sprite_height">422</integer>
+</resources>

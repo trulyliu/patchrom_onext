@@ -8,7 +8,8 @@
     value = {
         Landroid/app/ContextImpl$ApplicationContentResolver;,
         Landroid/app/ContextImpl$StaticServiceFetcher;,
-        Landroid/app/ContextImpl$ServiceFetcher;
+        Landroid/app/ContextImpl$ServiceFetcher;,
+        Landroid/app/ContextImpl$Injector;
     }
 .end annotation
 
@@ -1568,6 +1569,9 @@
     .parameter "broadcastPermission"
     .parameter "scheduler"
     .parameter "context"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v7, 0x0
@@ -1623,6 +1627,8 @@
     .restart local v3       #rd:Landroid/content/IIntentReceiver;
     :cond_1
     :goto_0
+    invoke-static {p0, p2}, Landroid/app/ContextImpl$Injector;->checkPriority(Landroid/app/ContextImpl;Landroid/content/IntentFilter;)V
+
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -4825,7 +4831,9 @@
 
     iget-boolean v2, v2, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
 
-    invoke-virtual {p3, v0, v1, v2}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Landroid/content/res/CompatibilityInfo;Z)Landroid/content/res/Resources;
+    iget-object v2, p0, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {p3, v2, v0, v1}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
 
     move-result-object v0
 
