@@ -633,7 +633,7 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     const-string v2, "adb_enabled"
 
