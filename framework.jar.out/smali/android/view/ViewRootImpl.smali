@@ -4389,6 +4389,9 @@
 
     .line 821
     :cond_1
+
+    goto :cond_2
+
     invoke-static {}, Landroid/app/ActivityThread;->isSystemServer()Z
 
     move-result v7
