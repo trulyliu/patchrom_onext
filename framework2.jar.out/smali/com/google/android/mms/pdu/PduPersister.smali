@@ -302,7 +302,7 @@
     sput-object v0, Lcom/google/android/mms/pdu/PduPersister;->ADDRESS_FIELDS_VZW_NGM:[I
 
     .line 122
-    const/16 v0, 0x1c
+    const/16 v0, 0x1b
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -462,7 +462,7 @@
 
     const-string v4, "phone_type"
 
-    aput-object v4, v0, v3
+    #aput-object v4, v0, v3
 
     sput-object v0, Lcom/google/android/mms/pdu/PduPersister;->PDU_PROJECTION:[Ljava/lang/String;
 
@@ -2142,7 +2142,7 @@
 
     move-result-object v5
 
-    sget-object v6, Lcom/google/android/mms/pdu/PduPersister;->PART_PROJECTION_HERO:[Ljava/lang/String;
+    sget-object v6, Lcom/google/android/mms/pdu/PduPersister;->PART_PROJECTION:[Ljava/lang/String;
 
     const/4 v7, 0x0
 
@@ -2722,6 +2722,7 @@
     .end local v32           #name:[B
     :cond_e
     :goto_4
+    goto/16 :cond_11
     const/16 v3, 0x9
 
     invoke-interface {v14, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -4590,6 +4591,8 @@
 
     .line 1628
     :cond_5
+    goto/16 :cond_8
+    
     invoke-virtual {p2}, Lcom/google/android/mms/pdu/PduPart;->getExtraUri()Landroid/net/Uri;
 
     move-result-object v0
@@ -5130,7 +5133,7 @@
 
     move-object/from16 v0, v23
 
-    invoke-virtual {v3, v5, v0}, Lcom/google/android/mms/util/PduCache;->put(Ljava/lang/Long;Lcom/google/android/mms/pdu/GenericPdu;)Lcom/google/android/mms/pdu/GenericPdu;
+    #invoke-virtual {v3, v5, v0}, Lcom/google/android/mms/util/PduCache;->put(Ljava/lang/Long;Lcom/google/android/mms/pdu/GenericPdu;)Lcom/google/android/mms/pdu/GenericPdu;
 
     .line 909
     :cond_2
@@ -5294,11 +5297,11 @@
     move-result-wide v27
 
     .line 784
-    const/16 v3, 0x1b
+    #const/16 v3, 0x1b
 
-    invoke-interface {v11, v3}, Landroid/database/Cursor;->getInt(I)I
+    #invoke-interface {v11, v3}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v25
+    #move-result v25
 
     .line 786
     sget-object v3, Lcom/google/android/mms/pdu/PduPersister;->ENCODED_STRING_COLUMN_INDEX_MAP:Ljava/util/HashMap;
@@ -5897,7 +5900,7 @@
 
     move-object/from16 v0, v23
 
-    invoke-virtual {v5, v6, v0}, Lcom/google/android/mms/util/PduCache;->put(Ljava/lang/Long;Lcom/google/android/mms/pdu/GenericPdu;)Lcom/google/android/mms/pdu/GenericPdu;
+    #invoke-virtual {v5, v6, v0}, Lcom/google/android/mms/util/PduCache;->put(Ljava/lang/Long;Lcom/google/android/mms/pdu/GenericPdu;)Lcom/google/android/mms/pdu/GenericPdu;
 
     .line 909
     :cond_10
@@ -5946,7 +5949,7 @@
 
     move-object/from16 v0, v23
 
-    invoke-virtual {v3, v5, v0}, Lcom/google/android/mms/util/PduCache;->put(Ljava/lang/Long;Lcom/google/android/mms/pdu/GenericPdu;)Lcom/google/android/mms/pdu/GenericPdu;
+    #invoke-virtual {v3, v5, v0}, Lcom/google/android/mms/util/PduCache;->put(Ljava/lang/Long;Lcom/google/android/mms/pdu/GenericPdu;)Lcom/google/android/mms/pdu/GenericPdu;
 
     .line 909
     :cond_12
@@ -6856,7 +6859,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v12, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    #invoke-virtual {v12, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 1929
     move-object/from16 v0, p0
@@ -6985,7 +6988,7 @@
 
     const/4 v10, 0x0
 
-    invoke-static/range {v5 .. v10}, Lcom/google/android/mms/util/SqliteWrapper;->update(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    #invoke-static/range {v5 .. v10}, Lcom/google/android/mms/util/SqliteWrapper;->update(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
     .line 1955
     .end local v7           #searchUri:Landroid/net/Uri;
@@ -7044,7 +7047,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v12, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    #invoke-virtual {v12, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 1965
     move-object/from16 v0, p0
@@ -8073,6 +8076,8 @@
 
     .line 988
     :cond_7
+    goto/16 :cond_a
+
     invoke-virtual {p1}, Lcom/google/android/mms/pdu/PduPart;->getExtraUri()Landroid/net/Uri;
 
     move-result-object v9
@@ -8866,7 +8871,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v6, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    #invoke-virtual {v6, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 1572
     move-object/from16 v0, p0
@@ -9605,7 +9610,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v11, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    #invoke-virtual {v11, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 1378
     move-object/from16 v0, p0
@@ -10048,7 +10053,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v11, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    #invoke-virtual {v11, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 1429
     :cond_1c
