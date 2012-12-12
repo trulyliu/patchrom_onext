@@ -193,6 +193,10 @@
 
     const/4 v4, 0x0
 
+    const/4 v2, -0x1
+
+    return v2
+
     .line 406
     invoke-static {}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$000()Z
 
