@@ -286,3 +286,8 @@ name="WeatherWidget.apk" certificate="build/target/product/security/shared.x509.
 name="WifiRouter.apk" certificate="build/target/product/security/platform.x509.pem" private_key="build/target/product/security/platform.pk8"
 name="WorldClock.apk" certificate="build/target/product/security/platform.x509.pem" private_key="build/target/product/security/platform.pk8"
 name="YouTube.apk" certificate="PRESIGNED" private_key=""
+name="ApplicationsProvider.apk" certificate="build/target/product/security/shared.x509.pem" private_key="build/target/product/security/shared.pk8"
+name="LiveWallpapers.apk" certificate="build/target/product/security/shared.x509.pem" private_key="build/target/product/security/shared.pk8"
+name="LiveWallpapersPicker.apk" certificate="build/target/product/security/platform.x509.pem" private_key="build/target/product/security/platform.pk8"
+name="UserDictionaryProvider.apk" certificate="build/target/product/security/shared.x509.pem" private_key="build/target/product/security/shared.pk8"
+name="StockSettings.apk" certificate="build/target/product/security/platform.x509.pem" private_key="build/target/product/security/platform.pk8"
