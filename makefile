@@ -50,7 +50,7 @@ local-zip-misc:
 
 	@echo update bootanimation
 	rm $(ZIP_DIR)/system/bin/bootanimation
-	cp $(OUT_SYS_PATH)/system/bin/bootanimation $(ZIP_DIR)/system/bin/bootanimation
+	cp $(OUT_SYS_PATH)/bin/bootanimation $(ZIP_DIR)/system/bin/bootanimation
 
 	@echo add system app
 	cp $(OUT_SYS_PATH)/app/ApplicationsProvider.apk $(ZIP_DIR)/system/app/
