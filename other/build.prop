@@ -85,7 +85,7 @@ ro.wifi.channels=
 ro.board.platform=tegra
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=endeavoru
-ro.build.description=3.14.707.24 4.0.4 IML74K CL128187 release-keys
+ro.build.description=3.14.707.24 4.1.1 IML74K CL128187 release-keys
 ro.build.changelist=128187
 ro.build.fingerprint=htc_asia_wwe/endeavoru/endeavoru:4.1.1/JRO03C/128187.24:user/release-keys
 ro.build.characteristics=default
@@ -93,8 +93,6 @@ ro.build.project=ENDEAVOR_U_JB_45_S:296434
 ro.product.version=3.14.707.24
 ro.build.languageremove=0
 ro.build.sense.version=4.5
-# Do not try to parse ro.build.description or .fingerprint
-ro.build.description=3.14.707.24 CL128187 release-keys
 ro.build.fingerprint=htc_asia_wwe/endeavoru/endeavoru:4.1.1/JRO03C/128187.24:user/release-keys
 ro.build.characteristics=default
 keyguard.no_require_sim=1
@@ -281,4 +279,3 @@ tf.enable=y
 ro.hwui.texture_cache_size=48
 
 persist.usb.android_config = 1
-persist.sys.usb.config=mass_storage,adb
