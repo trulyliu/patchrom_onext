@@ -24,7 +24,7 @@ local-phone-apps := AppSharing BackupRestoreConfirmation \
 	HTMLViewer IMEHWRPenPower IMEXT9English KeyChain LMW MarketUpdater \
 	Nfc OneTimeInitializer PhaseBeam PluginManager SDCardWizard SharedStorageBackup \
 	TrimIt Usage WifiRouter MediaProvider CIMEXT9 HTCAlbum HtcVideoPlayer SettingsProvider \
-	HtcSoundEnhancerSetting HtcDMC DLNAMiddleLayer HtcPhotoEnhancer Tube2_Configuration CIMEXT9
+	HtcSoundEnhancerSetting HtcDMC DLNAMiddleLayer HtcPhotoEnhancer CIMEXT9
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
