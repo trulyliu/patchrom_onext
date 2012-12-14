@@ -1278,9 +1278,9 @@
 
     .line 351
     .local v1, filename:Ljava/lang/String;
-    invoke-static {v1}, Landroid/os/RecoverySystem;->addPrefixForFileName(Ljava/lang/String;)Ljava/lang/String;
+    #invoke-static {v1}, Landroid/os/RecoverySystem;->addPrefixForFileName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    #move-result-object v1
 
     .line 355
     const-string v2, "RecoverySystem"
