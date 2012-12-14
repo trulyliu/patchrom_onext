@@ -69,14 +69,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:theme="@style/mirror_window" android:label="@string/mirror_name" android:icon="@drawable/icon_launcher_mirror" android:name="MirrorEntry" android:taskAffinity="android.task.mirror" android:clearTaskOnLaunch="true" android:launchMode="singleTask" android:screenOrientation="sensorPortrait" android:configChanges="keyboardHidden|orientation|screenSize">
-            <meta-data android:name="android.app.default_searchable" android:value="*" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:theme="@style/_window" android:label="@string/htc_private_app" android:icon="@com.htc:drawable/icon_launcher_camera" android:name="CameraServiceEntry" android:taskAffinity="android.task.Service" android:clearTaskOnLaunch="true" android:screenOrientation="sensorPortrait" android:configChanges="keyboardHidden|orientation|screenSize">
             <meta-data android:name="android.app.default_searchable" android:value="*" />
             <intent-filter>
