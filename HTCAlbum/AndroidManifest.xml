@@ -26,12 +26,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.htc.album.action.VIEW_PHOTO_FROM_CAMERA" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/*" />
-                <data android:mimeType="video/*" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="com.htc.album.action.VIEW_CONTINUOUS_SHOT_FROM_CAMERA" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="image/jpeg" />
@@ -370,11 +364,6 @@
             </intent-filter>
         </activity>
         <activity android:theme="@style/Theme.NoFakeScreen" android:name=".addons.ActivityImageViewer" android:excludeFromRecents="true" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/*" />
-            </intent-filter>
             <intent-filter>
                 <action android:name="com.htc.album.action.VIEW_WEB_PHOTO" />
                 <category android:name="android.intent.category.DEFAULT" />
