@@ -50,7 +50,7 @@ public class StockSettings extends PreferenceActivity{
 
     private CheckBoxPreference mHtcGestures;
     private CheckBoxPreference mHtcFastboot;
-    private CheckBoxPreference mHtcInternetPassThrough;    
+    private CheckBoxPreference mHtcInternetPassThrough;
 
     UsbStateReceiver mUsbStateReceiver;
 
@@ -85,7 +85,7 @@ public class StockSettings extends PreferenceActivity{
         filter.addDataScheme("file");
         registerReceiver(mUsbStateReceiver, filter);
     }
-    
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mHtcGestures) {
@@ -110,7 +110,6 @@ public class StockSettings extends PreferenceActivity{
             if (mHtcInternetPassThrough.isChecked()) {
 
                 mHtcInternetPassThrough.getContext().sendBroadcast(new Intent("com.htc.android.start_IPT"));
-                mHtcInternetPassThrough.getContext().sendBroadcast(new Intent("com.htc.ipt.connecting"));
 
                 showNotice();
             }
@@ -167,7 +166,7 @@ public class StockSettings extends PreferenceActivity{
                 .setPositiveButton(R.string.PSButton, null)
                 .show();
     }
-    
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -184,7 +183,7 @@ public class StockSettings extends PreferenceActivity{
         mHtcGestures.setChecked(Settings.System.getInt(getContentResolver(), HTC_GESTURES_DB_KEY, 0) != 0);
         mHtcFastboot.setChecked(Settings.System.getInt(getContentResolver(), HTC_FASTBOOT_DB_KEY, 1) != 0);
     }
-    
+
     void updateInternetPTState() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -201,7 +200,7 @@ public class StockSettings extends PreferenceActivity{
             Settings.System.putInt(getContentResolver(), HTC_INTERNETPT_DB_KEY, 0);
         }
     }
-    
+
     public class UsbStateReceiver extends BroadcastReceiver {
 
         @Override
@@ -216,7 +215,7 @@ public class StockSettings extends PreferenceActivity{
             }
             updateInternetPTState();
         }
-    }    
+    }
 }
 
 
