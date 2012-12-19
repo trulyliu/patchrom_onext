@@ -6246,7 +6246,7 @@
 
     move-object/from16 v4, v25
 
-    #invoke-interface {v0, v1, v2, v3, v4}, Landroid/media/IRingtonePlayer;->htcPlayAsync(Landroid/net/Uri;ZILandroid/os/Bundle;)V
+    invoke-interface {v0, v1, v2, v3}, Landroid/media/IRingtonePlayer;->playAsync(Landroid/net/Uri;ZI)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_5
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
