@@ -43,9 +43,11 @@ done
 mv HtcSettings/smali/com/android/settings HtcSettings/smali/com/android/htcsettings
 mv HtcSettings/smali/com/google/common HtcSettings/smali/com/google/htccommon
 
-sed '/android\.intent\.category\.LAUNCHER/'d HtcSettings/AndroidManifest.xml > $TMP_FILE
-cp $TMP_FILE HtcSettings/AndroidManifest.xml
-rm $TMP_FILE
+#sed '/android\.intent\.category\.LAUNCHER/'d HtcSettings/AndroidManifest.xml > $TMP_FILE
+#cp $TMP_FILE HtcSettings/AndroidManifest.xml
+#rm $TMP_FILE
+cp -f AndroidManifest.xml HtcSettings/
+cp -f PSService.smali HtcSettings/smali/com/android/htcsettings/
 
 apktool b HtcSettings HtcSettings.apk
 
