@@ -506,7 +506,7 @@
     <string name="permdesc_camera">允许该应用使用相机拍摄照片和视频。此权限可让该应用随时使用相机，而无需您的确认。</string>
     <string name="permlab_brick">永久禁用手机</string>
     <string name="permdesc_brick">允许应用永久停用整个手机，但这非常危险。</string>
-    <string name="permlab_reboot">强制手机重新引导</string>
+    <string name="permlab_reboot">强制手机重新启动</string>
     <string name="permdesc_reboot">允许应用强行重新启动手机。</string>
     <string name="permlab_mount_unmount_filesystems">访问 SD 卡文件系统</string>
     <string name="permdesc_mount_unmount_filesystems">允许应用装载和卸载可移动存储设备的文件系统。</string>
@@ -810,7 +810,7 @@
     <string name="factorytest_failed">出厂测试失败</string>
     <string name="factorytest_not_system">只有在 /system/app 中安装的包支持 FACTORY_TEST 操作。</string>
     <string name="factorytest_no_action">未发现支持 FACTORY_TEST 操作的包。</string>
-    <string name="factorytest_reboot">重新引导</string>
+    <string name="factorytest_reboot">重新启动</string>
     <string name="js_dialog_title">网址为“%s”的网页显示：</string>
     <string name="js_dialog_title_default">JavaScript</string>
     <string name="js_dialog_before_unload">"要从此页面导航至其他页面吗？
