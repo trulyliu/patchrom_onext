@@ -940,7 +940,7 @@
     iget-boolean v0, v0, Landroid/webkit/SelectActionModeCallback;->isHtcStyle:Z
 
     move/from16 v19, v0
-
+    goto/16 :cond_5
     if-eqz v19, :cond_5
 
     .line 242
