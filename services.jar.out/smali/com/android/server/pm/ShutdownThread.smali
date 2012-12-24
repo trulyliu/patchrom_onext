@@ -608,22 +608,23 @@
     return-void
 .end method
 .method public static shutdown(Landroid/content/Context;Z)V
-    .locals 2
+    .locals 1
     .parameter "context"
     .parameter "confirm"
 
     .prologue
-    .line 103
-    const-string v0, "ShutdownThread"
+    const/4 v0, 0x0
 
-    const-string v1, "[embedded] leading to HtcShutdownThread.shutdown"
+    .line 166
+    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 167
+    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
-    .line 104
-    invoke-static {p0, p1}, Lcom/htc/app/HtcShutdownThread;->shutdown(Landroid/content/Context;Z)V
+    .line 168
+    invoke-static {p0, p1}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;Z)V
 
-    .line 111
+    .line 169
     return-void
 .end method
 
