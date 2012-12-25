@@ -2593,7 +2593,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    #if-nez v0, :cond_1
 
     .line 1032
     :cond_0
@@ -15090,7 +15090,7 @@
 
     .line 4809
     .restart local v9       #hungUp:Z
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
     .line 4813
     .local v4, bHandled:Z
