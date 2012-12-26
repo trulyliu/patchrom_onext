@@ -5219,6 +5219,16 @@
 
     .prologue
     .line 2147
+
+    invoke-static {p0, p2}, Lcom/android/internal/telephony/SMSDispatcher$Injector;->checkFireWallForSms(Lcom/android/internal/telephony/SMSDispatcher;[[B)Z
+
+    move-result v1
+
+    if-eqz v1, :miui_cond_0
+
+    return-void
+
+    :miui_cond_0
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.provider.Telephony.SMS_RECEIVED"
@@ -5269,6 +5279,16 @@
 
     .prologue
     .line 2082
+
+    invoke-static {p0, p2}, Lcom/android/internal/telephony/SMSDispatcher$Injector;->checkFireWallForSms(Lcom/android/internal/telephony/SMSDispatcher;[[B)Z
+
+    move-result v1
+
+    if-eqz v1, :miui_cond_0
+
+    return-void
+
+    :miui_cond_0
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
@@ -5330,6 +5350,15 @@
 
     .prologue
     .line 2127
+    invoke-static {p0, p2}, Lcom/android/internal/telephony/SMSDispatcher$Injector;->checkFireWallForSms(Lcom/android/internal/telephony/SMSDispatcher;[[B)Z
+
+    move-result v1
+
+    if-eqz v1, :miui_cond_0
+
+    return-void
+
+    :miui_cond_0
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
@@ -5393,6 +5422,15 @@
     .parameter "pdus"
 
     .prologue
+    invoke-static {p0, p2}, Lcom/android/internal/telephony/SMSDispatcher$Injector;->checkFireWallForSms(Lcom/android/internal/telephony/SMSDispatcher;[[B)Z
+
+    move-result v1
+
+    if-eqz v1, :miui_cond_0
+
+    return-void
+
+    :miui_cond_0
     const/4 v0, 0x0
 
     .line 2108
