@@ -10,7 +10,7 @@ GIT_APPLY=$PORT_ROOT/tools/git.apply
 curdir=`pwd`
 
 if [ $1 = "Phone" ];then
-    for file in `find $1/smali -name *.part`
+    for file in `find $1/smali -name "*.part"`
     do
 	filepath=`dirname $file`
 	filename=`basename $file .part`
