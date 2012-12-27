@@ -6463,9 +6463,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    #if-eqz v1, :cond_6
 
     .line 2007
+    iget-boolean v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mShowLockBeforeUnlock:Z
+
+    if-nez v1, :cond_6
+
     sget-object v1, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->UnlockScreen:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     goto :goto_0
