@@ -647,7 +647,7 @@
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
-
+    goto :cond_5
     if-eqz v4, :cond_3
 
     .line 291
