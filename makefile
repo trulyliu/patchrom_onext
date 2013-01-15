@@ -50,13 +50,9 @@ local-zip-misc:
 
 	@echo update bootanimation
 	rm $(ZIP_DIR)/system/bin/bootanimation
-	cp $(OUT_SYS_PATH)/bin/bootanimation $(ZIP_DIR)/system/bin/bootanimation
+	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
 
 	@echo add system app
-	cp $(OUT_SYS_PATH)/app/ApplicationsProvider.apk $(ZIP_DIR)/system/app/
-	cp $(OUT_SYS_PATH)/app/LiveWallpapers.apk $(ZIP_DIR)/system/app/
-	cp $(OUT_SYS_PATH)/app/LiveWallpapersPicker.apk $(ZIP_DIR)/system/app/
-	cp $(OUT_SYS_PATH)/app/UserDictionaryProvider.apk $(ZIP_DIR)/system/app/
 	cp other/system_app/* $(ZIP_DIR)/system/app/
 
 	@echo add system config
