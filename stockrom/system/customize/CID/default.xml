@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<customization_form>
+  <category name="system">
+    <module name="locale">
+      <function>
+        <set name="single">
+          <item name="total_list">en_CN;zh_CN;zh_TW;</item>
+          <item type="boolean" name="en_CN">yes</item>
+          <item type="boolean" name="zh_CN">yes</item>
+          <item type="boolean" name="zh_TW">yes</item>
+        </set>
+      </function>
+    </module>
+    <module name="Settings">
+      <function name="screen_timeout">
+        <set name="plenty">
+          <item name="value1">15000</item>
+          <item name="value2">30000</item>
+          <item name="value3">45000</item>
+          <item name="value4">60000</item>
+          <item name="value5">120000</item>
+          <item name="value6">600000</item>
+          <item name="value7">-1</item>
+        </set>
+      </function>
+    </module>
+    <module name="defaultAutoTime">
+      <function>
+        <set name="single">
+          <item name="default">0</item>
+        </set>
+      </function>
+    </module>
+    <module name="defaultTime1224">
+      <function>
+        <set name="single">
+          <item name="default">24</item>
+        </set>
+      </function>
+    </module>
+    <module name="defaultTimeZone">
+      <function>
+        <set name="single">
+          <item name="default">Asia/Shanghai</item>
+        </set>
+      </function>
+    </module>
+    <module name="defaultAutoTimeZone">
+      <function>
+        <set name="single">
+          <item name="default">0</item>
+        </set>
+      </function>
+    </module>
+    <module name="InputMethod">
+      <function name="IME_language_set">
+        <set name="single">
+          <item type="boolean" name="English">yes</item>
+        </set>
+      </function>
+      <function name="IME_sip_set">
+        <set name="single">
+          <item name="total_list">Handwriting;ZuhYin;CangJie;PinYin;Stroke;</item>
+          <item type="boolean" name="Handwriting">yes</item>
+          <item type="boolean" name="ZuhYin">no</item>
+          <item type="boolean" name="CangJie">no</item>
+          <item type="boolean" name="PinYin">yes</item>
+          <item type="boolean" name="Stroke">yes</item>
+        </set>
+      </function>
+    </module>
+    <module name="deviceData">
+      <function>
+        <set name="single">
+          <item name="device_name">HTC S720t</item>
+        </set>
+      </function>
+    </module>
+    <module name="deviceData1">
+      <function>
+        <set name="single">
+          <item name="sw_number">1.0.0.S720t</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <category name="application">
+    <module name="Crash_Report">
+      <function name="setting">
+        <set name="single">
+          <item name="turn_off_report" type="boolean">yes</item>
+          <item name="turn_off_application_log" type="boolean">yes</item>
+        </set>
+      </function>
+    </module>
+    <module name="MediaScanner">
+      <function name="default_locale">
+        <set name="single">
+          <item name="locale">zh_CN</item>
+        </set>
+      </function>
+    </module>
+    <module name="Wifihotspot">
+      <function name="usermanagement">
+        <set name="plenty" max="15">
+          <item name="max_connection">5</item>
+          <item name="connection_array">8</item>
+        </set>
+      </function>
+    </module>
+    <module name="Phone">
+      <function name="ip_dial">
+        <set name="single">
+          <item name="enabled">true</item>
+          <item name="operator">46000:46001:46002:46007</item>
+          <item name="number1">17951</item>
+          <item name="number2">12593</item>
+        </set>
+      </function>
+    </module>
+    <module name="worldclock">
+      <function name="settings">
+        <set name="single">
+          <item name="offAlarm">true</item>
+        </set>
+      </function>
+    </module>
+    <module name="Gallery">
+      <function name="feature">
+        <set name="single">
+          <item name="disable_facebook">true</item>
+          <item name="disable_flickr">true</item>
+          <item name="CHS_sku">true</item>
+        </set>
+      </function>
+    </module>
+    <module name="OOBE">
+      <function name="Block_No_SIM">
+        <set name="single">
+          <item name="Default" type="boolean">no</item>
+        </set>
+      </function>
+      <function name="Step_Config">
+        <set name="single">
+          <item name="Location_Consent" type="boolean">no</item>
+          <item name="Tutorial" type="boolean">no</item>
+          <item name="Dropbox" type="boolean">no</item>
+        </set>
+      </function>
+      <function name="Account_Config">
+        <set name="single">
+          <item name="GMail" type="boolean">no</item>
+        </set>
+      </function>
+      <function name="Sync_Data_Config">
+        <set name="single">
+          <item name="Default" type="boolean">yes</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <BootConfiguration>
+    <BootAnimation animation="/system/customize/resource/hTC_bootup_one.zip" audio="/system/customize/resource/htc_boot.mp3" />
+  </BootConfiguration>
+  <ShutdownConfiguration>
+    <ShutdownAnimation image_png="/system/customize/resource/hTC_downanimation.zip" image="" fps="20" />
+  </ShutdownConfiguration>
+  <category name="SettingsProvider">
+    <module name="res">
+      <function name="values">
+        <set name="single">
+          <item name="def_screen_off_timeout">30000</item>
+          <item name="def_install_non_market_apps">1</item>
+          <item name="def_airplane_mode_toggleable_radios">null</item>
+          <item name="def_htc_mobile_network_on">true</item>
+          <item name="def_2g_on">2</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <category name="Settings">
+    <module name="list">
+      <function name="blocked_applications">
+        <set name="single">
+          <item name="0">cn.com.fetion</item>
+          <item name="1">com.huawei.pisa.activity</item>
+          <item name="2">com.intsig.BizCardReader</item>
+          <item name="3">com.ophone.reader.ui</item>
+          <item name="4">com.aspire.mm</item>
+          <item name="5">com.htc.friendstream</item>
+          <item name="6">com.mapbar.android.mapbarmap</item>
+          <item name="7">com.sina.mfweibo</item>
+          <item name="8">com.htc.android.teeter</item>
+          <item name="9">cn.cj.pe</item>
+          <item name="10">com.telenav.app.android</item>
+          <item name="11">com.soco</item>
+          <item name="12">com.htc.pdfviewer</item>
+          <item name="13">com.cyberlink.MovieEditor</item>
+          <item name="14">cn.cj.pe</item>
+        </set>
+      </function>
+    </module>
+    <module name="properties">
+      <function>
+        <set name="single">
+          <item name="market_name">HTC One XT</item>
+        </set>
+      </function>
+    </module>
+  </category>
+  <category name="framework">
+    <module name="ShareVia">
+      <function name="settings">
+        <set name="single">
+          <item name="1">com.htc.notes</item>
+          <item name="2">com.htc.cloudstorage.skydrive</item>
+          <item name="3">com.dropbox.android</item>
+          <item name="4">com.htc.android.mail</item>
+          <item name="5">com.android.mms</item>
+          <item name="6">com.facebook.katana</item>
+        </set>
+      </function>
+    </module>
+  </category>
+</customization_form>

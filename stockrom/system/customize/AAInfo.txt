@@ -1,0 +1,6 @@
+TaskID : 304667
+Project : ENDEAVOR_TD_JB_45_S
+SKU : HTCCN CHS CMCC[1403]
+ROM Ver : 3.12.1403.3
+Customization Id : 455451
+RCMS Id : 52

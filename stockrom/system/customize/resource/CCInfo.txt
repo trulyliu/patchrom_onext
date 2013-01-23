@@ -1,0 +1,5 @@
+﻿Project: ENDEAVOR_TD_JB_45_S
+SKU: HTCCN CMCC ROM
+ROM Build ID: 455451
+Build ID: 455452; SKU: HTCCN CMCC ROM default; CID: default; MNS: default
+Datetime: 2012/11/19 23:19:38
