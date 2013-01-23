@@ -4553,6 +4553,7 @@
     <public type="drawable" name="switch_inner_holo_light" id="0x01080567" />
     <public type="drawable" name="switch_track_holo_dark" id="0x01080570" />
     <public type="drawable" name="switch_track_holo_light" id="0x01080571" />
+    <public type="drawable" name="APKTOOL_DUMMY_0576" id="0x01080576" />
     <public type="drawable" name="tab_bottom_left" id="0x0108058e" />
     <public type="drawable" name="tab_bottom_left_v4" id="0x0108058f" />
     <public type="drawable" name="tab_bottom_right" id="0x01080590" />
@@ -6157,7 +6158,6 @@
     <public type="drawable" name="unlock_wave" id="0x010805ef" />
     <public type="drawable" name="btn_lock_normal" id="0x0108016b" />
     <public type="drawable" name="ic_commit" id="0x010802ba" />
-    <public type="drawable" name="APKTOOL_DUMMY_0576" id="0x01080576" />
     <public type="layout" name="activity_list_item" id="0x01090000" />
     <public type="layout" name="expandable_list_content" id="0x01090001" />
     <public type="layout" name="preference_category" id="0x01090002" />
