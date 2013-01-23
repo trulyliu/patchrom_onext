@@ -292,3 +292,5 @@ name="LiveWallpapersPicker.apk" certificate="build/target/product/security/platf
 name="UserDictionaryProvider.apk" certificate="build/target/product/security/shared.x509.pem" private_key="build/target/product/security/shared.pk8"
 name="StockSettings.apk" certificate="build/target/product/security/platform.x509.pem" private_key="build/target/product/security/platform.pk8"
 name="HtcSettings.apk" certificate="build/target/product/security/platform.x509.pem" private_key="build/target/product/security/platform.pk8"
+name="MarketUpdater.apk" certificate="PRESIGNED" private_key=""
+name="CIMETPCHS.apk" certificate="PRESIGNED" private_key=""

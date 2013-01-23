@@ -6,10 +6,10 @@
 local-zip-file     := stockrom.zip
 
 # The output zip file of MIUI rom, the default is update.zip if not specified
-local-modified-apps := Camera HTCAlbum
+# local-out-zip-file :=
 
 # All apps from original ZIP, but has smali files chanded
-#local-modified-apps := Camera SettingsProvider HtcMusic MediaProvider
+local-modified-apps := Camera HTCAlbum
 
 local-modified-jars := HTCExtension
 
@@ -24,7 +24,8 @@ local-phone-apps := AppSharing BackupRestoreConfirmation \
 	HTMLViewer IMEHWRPenPower IMEXT9English KeyChain LMW MarketUpdater \
 	Nfc OneTimeInitializer PhaseBeam PluginManager SDCardWizard SharedStorageBackup \
 	TrimIt Usage WifiRouter MediaProvider CIMEXT9 HTCAlbum \
-	HtcSoundEnhancerSetting HtcDMC DLNAMiddleLayer HtcPhotoEnhancer
+	HtcSoundEnhancerSetting HtcDMC DLNAMiddleLayer HtcPhotoEnhancer \
+	CIMETPCHS
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
@@ -66,6 +67,29 @@ local-zip-misc:
 	rm -rf $(ZIP_DIR)/system/media/weather
 	rm -rf $(ZIP_DIR)/system/media/video
 	rm -f $(ZIP_DIR)/system/bin/su
+
+%.phone : out/%.jar
+	@echo push -- to --- phone
+	adb remount
+	adb push $< /system/framework
+	adb shell chmod 644 /system/framework/$*.jar
+	#adb shell stop
+	#adb shell start
+	adb reboot
+
+%.sign-plat : out/%
+	java -jar $(TOOL_DIR)/signapk.jar $(PORT_ROOT)/build/security/platform.x509.pem $(PORT_ROOT)/build/security/platform.pk8  $< $<.signed
+	@echo push -- to --- phone
+	adb remount
+	adb push $<.signed /system/app/$*
+	adb shell chmod 644 /system/app/$*
+
+%.sign-test : out/%
+	java -jar $(TOOL_DIR)/signapk.jar $(PORT_ROOT)/build/security/testkey.x509.pem $(PORT_ROOT)/build/security/testkey.pk8  $< $<.signed
+	@echo push -- to --- phone
+	adb remount
+	adb push $<.signed /system/app/$*
+	adb shell chmod 644 /system/app/$*
 
 local-test:
 #	rm -f $(local-out-zip-file)
