@@ -9,7 +9,7 @@ local-zip-file     := stockrom.zip
 # local-out-zip-file :=
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := Camera HTCAlbum
+local-modified-apps := Camera HTCAlbum StockSettings
 
 local-modified-jars := HTCExtension
 

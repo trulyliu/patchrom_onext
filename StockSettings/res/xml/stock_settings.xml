@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/stock_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <CheckBoxPreference android:persistent="false" android:title="@string/htc_gestures_title" android:key="htc_gestures" android:summary="@string/htc_gestures_summary" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/htc_fastboot_title" android:key="htc_fastboot" android:summary="@string/htc_fastboot_summary" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/htc_internet_pt_title" android:key="htc_internet_pt" android:summary="@string/htc_internet_pt_summary" />
+</PreferenceScreen>
