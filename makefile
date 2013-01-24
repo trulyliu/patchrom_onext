@@ -23,7 +23,7 @@ local-phone-apps := AppSharing BackupRestoreConfirmation \
 	FilePicker FaceLock FM_Radio FMRadioService GoogleTTS HTC_IME HtcBeatsNotify \
 	HTMLViewer IMEHWRPenPower IMEXT9English KeyChain LMW MarketUpdater \
 	Nfc OneTimeInitializer PhaseBeam PluginManager SDCardWizard SharedStorageBackup \
-	TrimIt Usage WifiRouter MediaProvider CIMEXT9 HTCAlbum \
+	TrimIt Usage WifiRouter MediaProvider CIMEXT9 \
 	HtcSoundEnhancerSetting HtcDMC DLNAMiddleLayer HtcPhotoEnhancer \
 	CIMETPCHS
 
