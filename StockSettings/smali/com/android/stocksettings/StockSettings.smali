@@ -16,6 +16,12 @@
 
 .field private mHtcGestures:Landroid/preference/CheckBoxPreference;
 
+.field private final mDebug:Ljava/lang/Boolean;
+
+.field private mHtcPowerSaver:Landroid/preference/CheckBoxPreference;
+
+.field private mHtcWifiEnhancer:Landroid/preference/CheckBoxPreference;
+
 .field private mHtcInternetPassThrough:Landroid/preference/CheckBoxPreference;
 
 .field private mMassStorageActive:Z
@@ -27,11 +33,19 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     .prologue
     .line 40
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
+
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/stocksettings/StockSettings;->mDebug:Ljava/lang/Boolean;
 
     .line 205
     return-void
@@ -342,6 +356,11 @@
     .locals 5
 
     .prologue
+
+    invoke-direct {p0}, Lcom/android/stocksettings/StockSettings;->updateHtcPowerSaver()V
+
+    invoke-direct {p0}, Lcom/android/stocksettings/StockSettings;->updateHtcWifiEnhancer()V
+
     const/4 v1, 0x1
 
     const/4 v2, 0x0
@@ -441,6 +460,29 @@
 
     iput-object v1, p0, Lcom/android/stocksettings/StockSettings;->mHtcGestures:Landroid/preference/CheckBoxPreference;
 
+
+    .line 67
+    const-string v1, "htc_power_saver"
+
+    invoke-virtual {p0, v1}, Lcom/android/stocksettings/StockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/CheckBoxPreference;
+
+    iput-object v1, p0, Lcom/android/stocksettings/StockSettings;->mHtcPowerSaver:Landroid/preference/CheckBoxPreference;
+
+    .line 67
+    const-string v1, "htc_wifi_enhancer"
+
+    invoke-virtual {p0, v1}, Lcom/android/stocksettings/StockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/CheckBoxPreference;
+
+    iput-object v1, p0, Lcom/android/stocksettings/StockSettings;->mHtcWifiEnhancer:Landroid/preference/CheckBoxPreference;
+
     .line 68
     const-string v1, "htc_fastboot"
 
@@ -514,6 +556,11 @@
     .parameter "preference"
 
     .prologue
+
+    invoke-direct {p0, p2}, Lcom/android/stocksettings/StockSettings;->updateHtcPowerSaver(Landroid/preference/Preference;)V
+
+    invoke-direct {p0, p2}, Lcom/android/stocksettings/StockSettings;->updateHtcWifiEnhancer(Landroid/preference/Preference;)V
+
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -839,3 +886,394 @@
 
     goto :goto_2
 .end method
+
+
+.method private isPowserSaverEnabled()Z
+    .locals 7
+
+    .prologue
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    .line 320
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "user_powersaver_enable"
+
+    invoke-static {v4, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 321
+    .local v0, user_powersaver_enable:I
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "user_powersaver_enable_bk"
+
+    invoke-static {v4, v5, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 322
+    .local v1, user_powersaver_enable_bk:I
+    iget-object v4, p0, Lcom/android/stocksettings/StockSettings;->mDebug:Ljava/lang/Boolean;
+
+    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 323
+    const-string v4, "StockSettings"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    const-string v6, "user_powersaver_enable = "
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    .line 324
+    const-string v6, " user_powersaver_enable_bk = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 323
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 326
+    :cond_0
+    if-ne v2, v0, :cond_1
+
+    if-ne v2, v1, :cond_1
+
+    :goto_0
+    return v2
+
+    :cond_1
+    move v2, v3
+
+    goto :goto_0
+.end method
+
+
+.method private isWifiEnhancerEnabled()Z
+    .locals 7
+
+    .prologue
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    .line 310
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "wifi_watchdog_on"
+
+    invoke-static {v4, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 311
+    .local v1, wifi_watchdog_on:I
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "wifi_pwr_active_mode"
+
+    invoke-static {v4, v5, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 312
+    .local v0, wifi_pwr_active_mode:I
+    iget-object v4, p0, Lcom/android/stocksettings/StockSettings;->mDebug:Ljava/lang/Boolean;
+
+    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 313
+    const-string v4, "StockSettings"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    const-string v6, "wifi_watchdog_on = "
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    .line 314
+    const-string v6, " wifi_pwr_active_mode = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 313
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 316
+    :cond_0
+    if-ne v2, v0, :cond_1
+
+    :goto_0
+    return v2
+
+    :cond_1
+    move v2, v3
+
+    goto :goto_0
+.end method
+
+.method private updateHtcPowerSaver()V
+    .locals 2
+
+    .prologue
+    .line 330
+    iget-object v0, p0, Lcom/android/stocksettings/StockSettings;->mHtcPowerSaver:Landroid/preference/CheckBoxPreference;
+
+    .line 331
+    .local v0, localCheckBoxPreference1:Landroid/preference/CheckBoxPreference;
+    invoke-direct {p0}, Lcom/android/stocksettings/StockSettings;->isPowserSaverEnabled()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 332
+    return-void
+.end method
+
+.method private updateHtcPowerSaver(Landroid/preference/Preference;)V
+    .locals 4
+    .parameter "paramPreference"
+
+    .prologue
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    .line 277
+    iget-object v0, p0, Lcom/android/stocksettings/StockSettings;->mHtcPowerSaver:Landroid/preference/CheckBoxPreference;
+
+    if-ne p1, v0, :cond_0
+
+    .line 278
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "powersaver_auto_enable_ignore_first_callback"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 282
+    iget-object v0, p0, Lcom/android/stocksettings/StockSettings;->mHtcPowerSaver:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 283
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "user_powersaver_enable"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 284
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "user_powersaver_enable_bk"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 285
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "STATUS_POWER_SAVING_AUTO"
+
+    const/16 v2, 0x1f42
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 287
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "haptic_feedback_enabled"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 295
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 289
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "user_powersaver_enable"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 290
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "user_powersaver_enable_bk"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 291
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "STATUS_POWER_SAVING_AUTO"
+
+    const/16 v2, 0x1f40
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
+.end method
+
+.method private updateHtcWifiEnhancer()V
+    .locals 2
+
+    .prologue
+    .line 335
+    iget-object v0, p0, Lcom/android/stocksettings/StockSettings;->mHtcWifiEnhancer:Landroid/preference/CheckBoxPreference;
+
+    .line 336
+    .local v0, localCheckBoxPreference1:Landroid/preference/CheckBoxPreference;
+    invoke-direct {p0}, Lcom/android/stocksettings/StockSettings;->isWifiEnhancerEnabled()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 337
+    return-void
+.end method
+
+.method private updateHtcWifiEnhancer(Landroid/preference/Preference;)V
+    .locals 3
+    .parameter "paramPreference"
+
+    .prologue
+    .line 298
+    iget-object v0, p0, Lcom/android/stocksettings/StockSettings;->mHtcWifiEnhancer:Landroid/preference/CheckBoxPreference;
+
+    if-ne p1, v0, :cond_0
+
+    .line 299
+    iget-object v0, p0, Lcom/android/stocksettings/StockSettings;->mHtcWifiEnhancer:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 301
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "wifi_pwr_active_mode"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 307
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 304
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "wifi_pwr_active_mode"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
+.end method
+
+
+
+
+

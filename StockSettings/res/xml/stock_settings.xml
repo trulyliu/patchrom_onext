@@ -5,4 +5,6 @@
     <CheckBoxPreference android:persistent="false" android:title="@string/htc_gestures_title" android:key="htc_gestures" android:summary="@string/htc_gestures_summary" />
     <CheckBoxPreference android:persistent="false" android:title="@string/htc_fastboot_title" android:key="htc_fastboot" android:summary="@string/htc_fastboot_summary" />
     <CheckBoxPreference android:persistent="false" android:title="@string/htc_internet_pt_title" android:key="htc_internet_pt" android:summary="@string/htc_internet_pt_summary" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/htc_power_saver_title" android:key="htc_power_saver" android:summary="@string/htc_power_saver_summary" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/htc_wifi_enhancer_title" android:key="htc_wifi_enhancer" android:summary="@string/htc_wifi_enhancer_summary" />
 </PreferenceScreen>

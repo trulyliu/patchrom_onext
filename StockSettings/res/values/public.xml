@@ -16,5 +16,9 @@
     <public type="string" name="htc_gestures_summary" id="0x7f04000a" />
     <public type="string" name="htc_fastboot_title" id="0x7f04000b" />
     <public type="string" name="htc_fastboot_summary" id="0x7f04000c" />
+    <public type="string" name="htc_power_saver_title" id="0x7f04000d" />
+    <public type="string" name="htc_power_saver_summary" id="0x7f04000e" />
+    <public type="string" name="htc_wifi_enhancer_title" id="0x7f04000f" />
+    <public type="string" name="htc_wifi_enhancer_summary" id="0x7f040010" />
     <public type="layout" name="notice" id="0x7f050000" />
 </resources>

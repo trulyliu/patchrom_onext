@@ -13,4 +13,8 @@
     <string name="htc_gestures_summary">Enable 3-finger output gestures and ignore gestures with more fingers</string>
     <string name="htc_fastboot_title">Fast boot</string>
     <string name="htc_fastboot_summary">Not recommended with some Market apps</string>
+    <string name="htc_power_saver_title">HTC power saver</string>
+    <string name="htc_power_saver_summary">Enable to get longer battery life</string>
+    <string name="htc_wifi_enhancer_title">Wifi Enhance</string>
+    <string name="htc_wifi_enhancer_summary">Enable to get better wifi performance, and it will consume more battery, probably need to reboot your phone to take effect</string>
 </resources>

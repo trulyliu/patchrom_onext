@@ -14,4 +14,8 @@
     <string name="htc_gestures_summary">启用三指输出手势，忽略其余手指手势</string>
     <string name="htc_fastboot_title">快速启动</string>
     <string name="htc_fastboot_summary">不推荐使用在某些电子市场应用程序上</string>
+    <string name="htc_power_saver_title">HTC 省电模式</string>
+    <string name="htc_power_saver_summary">开启以获取更长电池使用时间</string>
+    <string name="htc_wifi_enhancer_title">WIFI 增强</string>
+    <string name="htc_wifi_enhancer_summary">开启以获得更好的WIFI性能, 但将消耗更多的电能, 更改设置后可能需要重启才能生效.</string>
 </resources>
