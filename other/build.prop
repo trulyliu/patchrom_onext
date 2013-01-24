@@ -48,7 +48,8 @@ ro.build.tags=release-keys
 ro.product.model=EndeavorU
 ro.product.brand=htccn_chs_cmcc
 ro.product.name=endeavortd
-ro.product.device=endeavortd
+#tricks since endeavortd use endeavoru recovery
+ro.product.device=endeavoru
 ro.product.board=
 ro.product.cpu.abi=armeabi-v7a
 ro.product.cpu.abi2=armeabi
@@ -60,8 +61,7 @@ ro.wifi.channels=
 ro.board.platform=tegra
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=endeavortd
-ro.build.description=3.12.1403.3 CL140683 release-keys
-
+ro.build.description=3.12.1403.3 4.1.1 IML74K CL140683 release-keys
 ro.build.changelist=140683
 ro.build.fingerprint=htccn_chs_cmcc/endeavortd/endeavortd:4.1.1/JRO03C/140683.3:user/release-keys
 ro.build.characteristics=default
