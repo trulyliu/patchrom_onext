@@ -1,0 +1,370 @@
+#!/system/bin/sh
+#Tweaks For HTC one X by Onepagebook Rom
+
+#RAM, multi-tasking,VM tweaks & sleeper tweaks
+
+if [ -e /sys/module/lowmemorykiller/parameters/adj ]; then
+	echo "0,3,6,10,12,15" > /sys/module/lowmemorykiller/parameters/adj
+fi
+
+if [ -e /proc/sys/vm/swappiness ]; then
+	echo "20" > /proc/sys/vm/swappiness
+fi
+
+if [ -e /proc/sys/vm/vfs_cache_pressure ]; then
+	echo "70" > /proc/sys/vm/vfs_cache_pressure
+fi
+
+if [ -e /proc/sys/vm/dirty_expire_centisecs ]; then
+	echo "3000" > /proc/sys/vm/dirty_expire_centisecs
+fi
+
+if [ -e /proc/sys/vm/dirty_writeback_centisecs ]; then
+	echo "500" > /proc/sys/vm/dirty_writeback_centisecs
+fi
+
+if [ -e /proc/sys/vm/dirty_ratio ]; then
+	echo "15" > /proc/sys/vm/dirty_ratio
+fi
+
+if [ -e /proc/sys/vm/dirty_background_ratio ]; then
+	echo "3" > /proc/sys/vm/dirty_background_ratio
+fi
+
+if [ -e /proc/sys/vm/panic_on_oom ]; then
+	echo "0" > /proc/sys/vm/panic_on_oom
+fi
+
+if [ -e /proc/sys/vm/oom_kill_allocating_task ]; then
+	echo "0" > /proc/sys/vm/oom_kill_allocating_task
+fi
+
+#minfree
+chmod 666 /sys/module/lowmemorykiller/parameters/minfree;
+MINFREE=`read_sys_setting tweaks_minfree 8192,10240,12288,14336,16384,20480`;
+MINFREE="8192,10240,12288,14336,16384,20480";
+echo $MINFREE > /sys/module/lowmemorykiller/parameters/minfree;
+chmod 444 /sys/module/lowmemorykiller/parameters/minfree;
+
+#Disable log cat on boot
+#if [ "`read_sys_setting tweaks_disable_logcat 0`" = "1" ]; then
+#	echo "Disabling logcat";
+#fi
+
+#Readahead tweaks
+
+chmod 666 /sys/block/mmcblk0/bdi/read_ahead_kb;
+chmod 666 /sys/devices/virtual/bdi/179:0/read_ahead_kb;
+READAHEAD=`read_sys_setting tweaks_read_ahead 2048`;
+READAHEAD="2048";
+echo $READAHEAD > /sys/block/mmcblk0/bdi/read_ahead_kb;
+echo $READAHEAD > /sys/devices/virtual/bdi/179:0/read_ahead_kb;
+chmod 444 /sys/block/mmcblk0/bdi/read_ahead_kb;
+chmod 444 /sys/devices/virtual/bdi/179:0/read_ahead_kb;
+
+# Various Kernel Tweaks
+
+#target=`getprop ro.board.platform`
+#case "$target" in "msm7x30")
+#echo "18000000" > /proc/sys/kernel/sched_latency_ns;
+#echo "2000000" > /proc/sys/kernel/sched_min_granularity_ns;
+#echo "3000000" > /proc/sys/kernel/sched_wakeup_granularity_ns;
+#echo "0" > /proc/sys/kernel/hung_task_timeout_secs;
+#echo "0" > /proc/sys/kernel/panic_on_oops;
+#echo "30" > /proc/sys/kernel/panic;
+#echo "725000" > /proc/sys/kernel/sched_shares_ratelimit;
+#echo "5000" > /proc/sys/kernel/threads-max;
+#echo "-1" > /proc/sys/kernel/sched_rt_runtime_us;
+#esac
+
+#Dropping Cache
+sync;
+echo "3" > /proc/sys/vm/drop_caches;
+sleep 1;
+echo "1" > /proc/sys/vm/drop_caches;
+
+#noatime
+
+mount -o remount,ro,noatime,nodiratime -t ext4 /dev/block/mmcblk0p12 /system
+mount -o remount,rw,noatime,nodiratime -t ext4 /dev/block/mmcblk0p15 /data
+mount -o remount,rw,noatime,nodiratime -t ext4 /dev/block/mmcblk0p13 /cache
+
+# I/O Scheduling
+echo
+echo "deadline" > /sys/block/mmcblk0/queue/scheduler;
+
+#SD Patch
+
+if [ -e /sys/devices/virtual/bdi/179:0/read_ahead_kb ]
+	then
+	/system/xbin/echo "2048" > /sys/devices/virtual/bdi/179:0/read_ahead_kb;
+fi;
+
+if [ -e /sys/devices/virtual/bdi/179:16/read_ahead_kb ]
+	then
+	/system/xbin/echo "2048" > /sys/devices/virtual/bdi/179:16/read_ahead_kb;
+fi;
+
+	echo "SDCard tune up complete";
+
+#journaling block
+
+tune2fs -o journal_data_writeback /dev/block/mmcblk0p12
+tune2fs -O ^has_journal /dev/block/mmcblk0p12
+tune2fs -o journal_data_writeback /dev/block/mmcblk0p13
+tune2fs -O ^has_journal /dev/block/mmcblk0p13
+tune2fs -o journal_data_writeback /dev/block/mmcblk0p15
+tune2fs -O ^has_journal /dev/block/mmcblk0p15
+
+# Enable GPU rendering for 2D operations
+
+sysrw
+rm -f /system/lib/egl/libGLES_android.so
+busybox sed -i '/0 0 android/d' /system/lib/egl/egl.cfg
+sysro
+
+# Adrenaline Engine Specified
+
+
+if [ -e /data/adrenaline/engine/etc/sq_c ]; then
+	echo "SQlite Counter File Exists"
+	CNT=/data/adrenaline/engine/etc/sq_c
+	SC=`cat $CNT`
+	if [ $SC -eq 0 ]; then
+		echo "1" > $CNT
+		echo "First Boot"
+		exit
+	elif [ $SC -eq 1 ]; then
+		echo "2" > $CNT
+		echo "Second Boot"
+		exit
+	elif [ $SC -eq 2 ]; then
+		echo "3" > $CNT
+		echo "Third Boot"
+		exit
+	elif [ $SC -eq 3 ]; then
+		echo "4" > $CNT
+		echo "Forth Boot"
+		exit
+	elif [ $SC -eq 4 ]; then
+		echo "Fifth Boot"
+		echo "Now Optimizing"
+		rm -f /data/adrenaline/engine/etc/sq_c
+		touch /data/adrenaline/engine/etc/sq_c
+		echo "0" > /data/adrenaline/engine/etc/sq_c
+		for i in \
+		`busybox find /data -iname "*.db"`; 
+		do \
+			/system/xbin/sqlite3 $i 'VACUUM;'; 
+			/system/xbin/sqlite3 $i 'REINDEX;'; 
+		done;
+
+		if [ -d "/dbdata" ]; then
+			for i in \
+			`busybox find /dbdata -iname "*.db"`; 
+			do \
+				/system/xbin/sqlite3 $i 'VACUUM;'; 
+				/system/xbin/sqlite3 $i 'REINDEX;'; 
+			done;
+		fi;
+
+
+		if [ -d "/datadata" ]; then
+			for i in \
+			`busybox find /datadata -iname "*.db"`; 
+			do \
+				/system/xbin/sqlite3 $i 'VACUUM;'; 
+				/system/xbin/sqlite3 $i 'REINDEX;'; 
+			done;
+		fi;
+
+
+		for i in \
+		`busybox find /sdcard -iname "*.db"`; 
+		do \
+			/system/xbin/sqlite3 $i 'VACUUM;'; 
+			/system/xbin/sqlite3 $i 'REINDEX;'; 
+		done;
+	fi;
+else
+	touch /data/adrenaline/engine/etc/sq_c
+	echo "0" > /data/adrenaline/engine/etc/sq_c
+	echo "First Installation"
+	echo "Now Optimizing"
+		for i in \
+		`busybox find /data -iname "*.db"`; 
+		do \
+			/system/xbin/sqlite3 $i 'VACUUM;'; 
+			/system/xbin/sqlite3 $i 'REINDEX;'; 
+		done;
+
+		if [ -d "/dbdata" ]; then
+			for i in \
+			`busybox find /dbdata -iname "*.db"`; 
+			do \
+				/system/xbin/sqlite3 $i 'VACUUM;'; 
+				/system/xbin/sqlite3 $i 'REINDEX;'; 
+			done;
+		fi;
+
+
+		if [ -d "/datadata" ]; then
+			for i in \
+			`busybox find /datadata -iname "*.db"`; 
+			do \
+				/system/xbin/sqlite3 $i 'VACUUM;'; 
+				/system/xbin/sqlite3 $i 'REINDEX;'; 
+			done;
+		fi;
+
+
+		for i in \
+		`busybox find /sdcard -iname "*.db"`; 
+		do \
+			/system/xbin/sqlite3 $i 'VACUUM;'; 
+			/system/xbin/sqlite3 $i 'REINDEX;'; 
+		done;
+fi;
+
+#no debug/ no normalized sleeper
+mount -t debugfs none /sys/kernel/debug
+echo NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features
+
+#Clean Caches & improve app loading times
+rm -r /cache/*.apk
+rm -r /cache/*.tmp
+rm -r /data/dalvik-cache/*.apk
+rm -r /data/dalvik-cache/*.tmp	
+echo "Cache Cleanup Complete";
+
+#VM Tweaks
+echo "4096" > /proc/sys/vm/min_free_kbytes;
+echo "0" > /proc/sys/vm/swappiness;
+echo "50" > /proc/sys/vm/vfs_cache_pressure;
+echo "90" > /proc/sys/vm/dirty_ratio;
+echo "70" > /proc/sys/vm/dirty_background_ratio
+echo "8" > /proc/sys/vm/page-cluster;
+
+#Network Tweaks
+echo "0" > /proc/sys/net/ipv4/tcp_timestamps;
+echo "1" > /proc/sys/net/ipv4/tcp_tw_reuse;
+echo "1" > /proc/sys/net/ipv4/tcp_tw_recycle;
+echo "5" > /proc/sys/net/ipv4/tcp_keepalive_probes;
+echo "30" > /proc/sys/net/ipv4/tcp_keepalive_intvl;
+echo "30" > /proc/sys/net/ipv4/tcp_fin_timeout;
+echo "404480" > /proc/sys/net/core/wmem_max;
+echo "404480" > /proc/sys/net/core/rmem_max;
+echo "256960" > /proc/sys/net/core/rmem_default;
+echo "256960" > /proc/sys/net/core/wmem_default;
+echo "4096,16384,404480" > /proc/sys/net/ipv4/tcp_wmem;
+echo "4096,87380,404480" > /proc/sys/net/ipv4/tcp_rmem;
+
+#Zipalign on boot
+
+/system/xbin/busybox mount -o remount, ro /system
+LOG_FILE=/data/zipalign.log
+	if [ -e $LOG_FILE ]; then
+		rm $LOG_FILE;
+	fi;
+
+echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" >> $LOG_FILE;
+	for apk in /system/app/*.apk ; do
+	zipalign -c 4 $apk;
+	ZIPCHECK=$?;
+	if [ $ZIPCHECK -eq 1 ]; then
+		echo ZipAligning $(basename $apk)  >> $LOG_FILE;
+		zipalign -f 4 $apk /cache/$(basename $apk);
+			if [ -e /cache/$(basename $apk) ]; then
+				cp -f -p /cache/$(basename $apk) $apk  >> $LOG_FILE;
+				rm /cache/$(basename $apk);
+			else
+				echo ZipAligning $(basename $apk) Failed  >> $LOG_FILE;
+			fi;
+	else
+		echo ZipAlign already completed on $apk  >> $LOG_FILE;
+	fi;
+		done;
+echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" >> $LOG_FILE;
+
+LOG_FILE=/data/zipalignd.log
+	if [ -e $LOG_FILE ]; then
+		rm $LOG_FILE;
+	fi;
+
+echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" >> $LOG_FILE;
+	for apk in /data/app/*.apk ; do
+	zipalign -c 4 $apk;
+	ZIPCHECK=$?;
+	if [ $ZIPCHECK -eq 1 ]; then
+		echo ZipAligning $(basename $apk)  >> $LOG_FILE;
+		zipalign -f 4 $apk /cache/$(basename $apk);
+			if [ -e /cache/$(basename $apk) ]; then
+				cp -f -p /cache/$(basename $apk) $apk  >> $LOG_FILE;
+				rm /cache/$(basename $apk);
+			else
+				echo ZipAligning $(basename $apk) Failed  >> $LOG_FILE;
+			fi;
+	else
+		echo ZipAlign already completed on $apk  >> $LOG_FILE;
+	fi;
+		done;
+echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" >> $LOG_FILE;
+
+#finish
+
+sysctl -p
+
+sync;
+setprop cm.filesystem.ready 1;
+
+#Permissions script
+
+sysrw
+
+echo "Setting permissions"
+
+echo "Setting /app & /framework permissions"
+for file in /system/app/* /system/framework/* /data/app/*; do
+chmod 644 $file
+done
+
+echo "Setting init.d permissions"
+chmod 777 /system/etc/init.d
+for file in /system/etc/init.d/*; do
+echo "setting permissions (777) for $file"
+chmod 777 $file
+done
+
+echo "Setting contacts pics permissions"
+if [ -e /data/data/com.android.providers.contacts/files ]
+then
+chmod -R 777 /data/data/com.android.providers.contacts/files;
+fi;
+
+sysro
+
+echo " Permissions fixes applied";
+
+# renicing kswapd
+
+KSWAPD_RENICE()
+{
+pidkswapd=`pidof kswapd0`;
+if [ $pidkswapd ]; # Wait for kswapd to be available;
+then
+	renice 19 $pidkswapd; # set kswapd lowest nice level possible;
+	exit;
+else
+	sleep 5;
+	KSWAPD_RENICE;
+fi;
+}
+
+#Battery Tweaks
+echo "500" > /proc/sys/vm/dirty_expire_centisecs;
+echo "1000" > /proc/sys/vm/dirty_writeback_centisecs
+
+#Remove Logging
+#rm /dev/log/main
+
+# End of the script

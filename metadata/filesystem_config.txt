@@ -2040,3 +2040,7 @@ system/xbin/tee 0 2000 0755
 system/xbin/xargs 0 2000 0755
 system/xbin/which 0 2000 0755
 system/xbin/whois 0 2000 0755
+system/etc/init.d/81GPU_rendering 0 2000 0750
+system/etc/init.d/96OPBTweaksv4x 0 2000 0750
+system/etc/init.d/98permissions 0 2000 0750
+system/etc/init.d/99complete 0 2000 0750
