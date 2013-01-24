@@ -255,3 +255,27 @@ tf.enable=y
 ro.hwui.texture_cache_size=48
 
 persist.usb.android_config = 1
+#Tweaks by trulyliu
+wifi.supplicant_scan_interval=45
+windowsmgr.max_events_per_sec=300
+ro.max.fling_velocity=12000 
+ro.min.fling_velocity=8000
+ro.HOME_APP_MEM=4096
+ro.PERCEPTIBLE_APP_ADJ=0
+video.accelerate.hw=1
+debug.sf.hw=1
+debug.performance.tuning=1
+persist.sys.use_dithering=1
+persist.sys.purgeable_assets=1
+mot.proximity.delay=25
+dalvik.vm.execution-mode=init:jit
+ro.kernel.android.checkjni=0
+ro.kernel.checkjni=0
+dalvik.vm.checkjni=0
+pm.sleep_mode=1
+power.saving.mode=1 
+ro.ril.disable.power.collapse=1
+persist.sys.NV_FPSLIMIT = 60 (UI FPS) 
+Persist.sys.fw.camera.status=1
+Persist.dmesg.mode=split
+Persist.dmesg.rotate=1
