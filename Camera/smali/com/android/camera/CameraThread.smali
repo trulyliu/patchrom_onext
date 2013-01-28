@@ -8626,6 +8626,12 @@
 
     move-result v15
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/camera/CameraThread;->isSlowMotionMode()Z
+
+    move-result v5
+
+    if-nez v5, :cond_16
+
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/camera/CameraThread;->mCameraActivity:Lcom/android/camera/HTCCamera;
