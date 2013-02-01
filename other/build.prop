@@ -253,6 +253,7 @@ dalvik.vm.stack-trace-file=/data/anr/traces.txt
 tf.enable=y
 
 ro.hwui.texture_cache_size=48
+ro.product.mod_device=onext_trulyliu
 
 persist.usb.android_config = 1
 #Tweaks by trulyliu
