@@ -257,7 +257,7 @@ ro.product.mod_device=onext_trulyliu
 
 persist.usb.android_config = 1
 #Tweaks by trulyliu
-wifi.supplicant_scan_interval=45
+wifi.supplicant_scan_interval=120
 windowsmgr.max_events_per_sec=300
 ro.max.fling_velocity=12000 
 ro.min.fling_velocity=8000
