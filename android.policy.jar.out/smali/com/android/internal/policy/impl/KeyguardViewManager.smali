@@ -333,7 +333,7 @@
 .end method
 
 .method public declared-synchronized hide()V
-    .locals 2
+    .locals 4
 
     .prologue
     .line 392
@@ -351,12 +351,16 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 395
-    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->cleanUp()V
+    new-instance v1, Lcom/android/internal/policy/impl/KeyguardViewManager$KeyguardViewCleanUpRunnable;
 
-    .line 396
+    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/KeyguardViewManager$KeyguardViewCleanUpRunnable;-><init>(Lcom/android/internal/policy/impl/KeyguardViewManager;)V
+
+    const-wide/16 v2, 0x0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/FrameLayout;->postDelayed(Ljava/lang/Runnable;J)Z
+
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     const/4 v1, 0x0
