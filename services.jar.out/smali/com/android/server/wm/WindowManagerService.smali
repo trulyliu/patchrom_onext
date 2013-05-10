@@ -7328,7 +7328,10 @@
     .locals 3
 
     .prologue
-    .line 6745
+    const/4 v0, 0x0
+
+    return v0
+
     const-string v0, "1"
 
     const-string v1, "ro.secure"
@@ -7778,29 +7781,33 @@
 
     check-cast v3, Lcom/android/server/wm/WindowToken;
 
-    .line 5589
     .restart local v3       #token:Lcom/android/server/wm/WindowToken;
     if-eqz v3, :cond_2
 
-    .line 5590
     invoke-direct {p0, v2, v3}, Lcom/android/server/wm/WindowManagerService;->reAddAppWindowsLocked(ILcom/android/server/wm/WindowToken;)I
 
     move-result v2
 
-    .line 5587
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 5594
     .end local v3           #token:Lcom/android/server/wm/WindowToken;
     :cond_3
+    invoke-static {p0, p2}, Lcom/android/server/wm/WindowManagerService$Injector;->updateFocusAndLayout(Lcom/android/server/wm/WindowManagerService;I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_miui_0
+
+    return-void
+
+    :cond_miui_0
     iget-object v4, p0, Lcom/android/server/wm/WindowManagerService;->mInputMonitor:Lcom/android/server/wm/InputMonitor;
 
     invoke-virtual {v4}, Lcom/android/server/wm/InputMonitor;->setUpdateInputWindowsNeededLw()V
 
-    .line 5595
     const/4 v4, 0x3
 
     invoke-direct {p0, v4, v6}, Lcom/android/server/wm/WindowManagerService;->updateFocusedWindowLocked(IZ)Z
@@ -8384,6 +8391,8 @@
     .end local v0           #N:I
     :cond_6
     :goto_7
+    invoke-static {p0}, Lcom/android/server/wm/WindowManagerService$Injector;->hideFloatingWindow(Lcom/android/server/wm/WindowManagerService;)V
+
     invoke-static {v11, v12}, Landroid/os/Trace;->traceEnd(J)V
 
     goto/16 :goto_0
@@ -21752,6 +21761,10 @@
     iput-boolean v5, p0, Lcom/android/server/wm/WindowManagerService;->mSafeMode:Z
 
     .line 7595
+    const/4 v6, 0x0
+
+    iput-boolean v6, p0, Lcom/android/server/wm/WindowManagerService;->mSafeMode:Z
+
     :try_start_0
     const-string v5, "persist.sys.safemode"
 
@@ -34354,6 +34367,8 @@
 
     .line 3293
     :cond_1
+    invoke-static/range {v29 .. v29}, Lcom/android/server/wm/WindowManagerService$Injector;->restoreFloatingWindowState(Lcom/android/server/wm/WindowState;)V
+
     move-object/from16 v0, v29
 
     iget-object v0, v0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
@@ -35722,6 +35737,8 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/wm/WindowManagerService;->updatePenWorkingModeLocked(Lcom/android/server/wm/WindowState;)V
 
+    invoke-static/range {v29 .. v29}, Lcom/android/server/wm/WindowManagerService$Injector;->saveFloatingWindowState(Lcom/android/server/wm/WindowState;)V
+
     .line 3579
     sget-boolean v31, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
@@ -36154,17 +36171,16 @@
 
     invoke-static {v0, v1, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 3439
     invoke-static/range {v17 .. v18}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 3440
+    invoke-static/range {v29 .. v29}, Lcom/android/server/wm/WindowManagerService$Injector;->saveFloatingWindowState(Lcom/android/server/wm/WindowState;)V
+
     const/16 v31, 0x0
 
     monitor-exit v33
 
     goto/16 :goto_0
 
-    .line 3464
     .end local v10           #e:Ljava/lang/Exception;
     :cond_2f
     const/16 v31, 0x0

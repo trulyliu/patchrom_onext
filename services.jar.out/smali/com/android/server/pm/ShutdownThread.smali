@@ -171,7 +171,7 @@
 
     .line 231
     .local v1, pd:Landroid/app/ProgressDialog;
-    const v2, 0x60c0191
+    const v2, 0x60c0026
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -180,7 +180,7 @@
     invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 232
-    const v2, 0x60c01aa
+    const v2, 0x60c002c
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

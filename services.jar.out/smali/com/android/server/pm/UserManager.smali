@@ -1905,8 +1905,17 @@
 
     monitor-enter v1
 
-    .line 113
+    if-nez p1, :cond_0
+
+    const/4 v0, 0x1
+
     :try_start_0
+    monitor-exit v1
+
+    :goto_0
+    return v0
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/pm/UserManager;->mUserIds:[I
 
     invoke-static {v0, p1}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
@@ -1915,7 +1924,7 @@
 
     monitor-exit v1
 
-    return v0
+    goto :goto_0
 
     .line 114
     :catchall_0
