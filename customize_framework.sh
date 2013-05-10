@@ -17,11 +17,12 @@ then
             rm -rf "$file"
     done
 
+    rm -rf "$BUILD_OUT/framework/smali/com/google/android/mms"
     # move some smali to create a separate $SEP_FRAME.jar
     # including: smali/miui smali/android/widget
-    mkdir -p "$BUILD_OUT/$SEP_FRAME/smali"
-    rm -rf $BUILD_OUT/$SEP_FRAME/smali/miui
-    mv "$BUILD_OUT/framework/smali/miui" "$BUILD_OUT/$SEP_FRAME/smali"
+    #mkdir -p "$BUILD_OUT/$SEP_FRAME/smali"
+    #rm -rf $BUILD_OUT/$SEP_FRAME/smali/miui
+    #mv "$BUILD_OUT/framework/smali/miui" "$BUILD_OUT/$SEP_FRAME/smali"
 
     PATCH_FILE=$BUILD_OUT/framework/smali/com/android/internal/telephony/gsm/GsmDataConnectionTracker\$Injector.smali
     sed "s/invoke-static {}, Lcom\/android\/internal\/telephony\/gsm\/GsmDataConnectionTracker;->getPolicyDataEnabled()Z/invoke-virtual {p0}, Lcom\/android\/internal\/telephony\/gsm\/GsmDataConnectionTracker;->getPolicyDataEnabled()Z/g" $PATCH_FILE > $TMP_FILE
@@ -38,7 +39,9 @@ then
             rm -rf "$file"
     done
 
-    mv "$BUILD_OUT/$SEP_FRAME/smali/miui/"  "$BUILD_OUT/framework2/smali/miui"
+    rm -rf "$BUILD_OUT/framework2/smali/com/google/android/mms"
+    cp -r "$BUILD_OUT/framework_miui/smali/com/google/android/mms" "$BUILD_OUT/framework2/smali/com/google/android"
+    #mv "$BUILD_OUT/$SEP_FRAME/smali/miui/"  "$BUILD_OUT/framework2/smali/miui"
 fi
 
 if [ $2 = "$BUILD_OUT/android.policy" ];then
