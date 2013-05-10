@@ -2063,7 +2063,7 @@
     :cond_3
     iget-object v2, p0, Lcom/android/internal/app/AlertController;->mWindow:Landroid/view/Window;
 
-    invoke-virtual {v2, v5, v4}, Landroid/view/Window;->setLayout(II)V
+    #invoke-virtual {v2, v5, v4}, Landroid/view/Window;->setLayout(II)V
 
     .line 258
     :cond_4
@@ -2094,7 +2094,7 @@
     :cond_6
     iget-object v2, p0, Lcom/android/internal/app/AlertController;->mWindow:Landroid/view/Window;
 
-    invoke-virtual {v2, v6, v4}, Landroid/view/Window;->setLayout(II)V
+    #invoke-virtual {v2, v6, v4}, Landroid/view/Window;->setLayout(II)V
 
     .line 265
     .end local v0           #dm:Landroid/util/DisplayMetrics;
@@ -2106,7 +2106,7 @@
     :cond_8
     iget-object v2, p0, Lcom/android/internal/app/AlertController;->mWindow:Landroid/view/Window;
 
-    invoke-virtual {v2, v4, v4}, Landroid/view/Window;->setLayout(II)V
+    #invoke-virtual {v2, v4, v4}, Landroid/view/Window;->setLayout(II)V
 
     goto :goto_0
 .end method
