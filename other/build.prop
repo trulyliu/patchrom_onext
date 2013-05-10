@@ -280,3 +280,6 @@ persist.sys.NV_FPSLIMIT = 60 (UI FPS)
 Persist.sys.fw.camera.status=1
 Persist.dmesg.mode=split
 Persist.dmesg.rotate=1
+
+ro.miui.ui.version.code=3
+ro.miui.ui.version.name=V5

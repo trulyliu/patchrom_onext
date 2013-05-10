@@ -36,9 +36,9 @@
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
 
     <application android:label="Stock Settings"
-                 android:theme="@miui:style/Theme.Light">
+                 android:theme="@miui:style/V5.Theme.Light.Settings">
         <activity android:name="StockSettings"
-                  android:theme="@miui:style/Theme.Light"
+                  android:theme="@miui:style/V5.Theme.Light.Settings"
                   android:label="@string/stock_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
