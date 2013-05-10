@@ -250,6 +250,12 @@
 
 
 # instance fields
+.field mAboveStatusBarFullScreenWindow:Landroid/view/WindowManagerPolicy$WindowState;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field final HTC_DOCKSCREEN_HOME_INTENT:Ljava/lang/String;
 
 .field final KEY_DESK_DOCK_HOME_CAPTURE:Ljava/lang/String;
@@ -620,6 +626,12 @@
 .field mStableTop:I
 
 .field mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
+
+.field mStatusBarDisableToken:Landroid/os/IBinder;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field mStatusBarHeight:I
 
@@ -1078,7 +1090,12 @@
     .line 199
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 325
+    new-instance v0, Landroid/os/Binder;
+
+    invoke-direct {v0}, Landroid/os/Binder;-><init>()V
+
+    iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarDisableToken:Landroid/os/IBinder;
+
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
@@ -5189,6 +5206,7 @@
 
     .line 4030
     :cond_1
+    invoke-static {p0, p1, p2}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->setAboveStatusBarFullScreenWindow(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)V
     return-void
 
     .line 4011
@@ -5223,7 +5241,8 @@
     .line 3979
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mAllowLockscreenWhenOn:Z
 
-    .line 3984
+    invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->clearAboveStatusBarFullScreenWindow(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+
     return-void
 .end method
 
@@ -8188,9 +8207,7 @@
     if-eqz v8, :cond_9
 
     .line 4046
-    iget-object v8, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v8, v6}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
+    invoke-static {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
     move-result v8
 
@@ -8201,6 +8218,8 @@
     .line 4086
     :cond_0
     :goto_1
+    invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->checkStatusBarVisibility(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mTopIsFullscreen:Z
 
     .line 4091
@@ -8475,10 +8494,7 @@
     :goto_4
     if-eqz v3, :cond_c
 
-    .line 4062
-    iget-object v8, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v8, v6}, Landroid/view/WindowManagerPolicy$WindowState;->hideLw(Z)Z
+    invoke-static {p0, v7}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
     move-result v8
 
@@ -8506,9 +8522,7 @@
 
     .line 4081
     :cond_c
-    iget-object v8, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v8, v6}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
+    invoke-static {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
     move-result v8
 
@@ -18538,6 +18552,14 @@
     return-void
 .end method
 
+.method onScreenShotMessageSend(Landroid/os/Message;)V
+    .locals 0
+    .parameter "msg"
+
+    .prologue
+    return-void
+.end method
+
 .method public performHapticFeedbackLw(Landroid/view/WindowManagerPolicy$WindowState;IZ)Z
     .locals 7
     .parameter "win"
@@ -23134,7 +23156,12 @@
     :cond_0
     sparse-switch p1, :sswitch_data_0
 
-    .line 2070
+    invoke-static {p1, v0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->getMiuiViewLayer(II)I
+
+    move-result v0
+
+    goto :goto_0
+
     const-string v1, "WindowManager"
 
     new-instance v2, Ljava/lang/StringBuilder;

@@ -1647,6 +1647,10 @@
 
     .line 3293
     :cond_8
+    iget-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
+
+    invoke-static {p0, v7}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleStartingWindow(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/widget/ActionBarView;)V
+
     const/4 v3, 0x0
 
     .line 3294
@@ -2312,7 +2316,7 @@
 
     move-object/from16 v1, v17
 
-    invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleIcsAppLayoutParams(Lcom/android/internal/policy/impl/PhoneWindow;Landroid/view/WindowManager;Landroid/view/WindowManager$LayoutParams;)V
+    invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleAppLayoutParams(Lcom/android/internal/policy/impl/PhoneWindow;Landroid/view/WindowManager;Landroid/view/WindowManager$LayoutParams;)V
 
     .line 743
     move-object/from16 v0, p1
@@ -2384,7 +2388,7 @@
 
     iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->createdPanelView:Landroid/view/View;
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_miui_0
 
     .line 717
     move-object/from16 v0, p1
@@ -2420,6 +2424,33 @@
     iput v4, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     goto :goto_6
+
+    :cond_miui_0
+    move-object/from16 v0, p1
+
+    iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
+
+    invoke-virtual {v4}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    .restart local v2       #lp:Landroid/view/ViewGroup$LayoutParams;
+    if-eqz v2, :cond_miui_1
+
+    iget v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    :cond_miui_1
+    move-object/from16 v0, p1
+
+    iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
+
+    invoke-virtual {v4}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getChildCount()I
+
+    move-result v4
+
+    if-nez v4, :cond_a
+
+    goto :goto_0
 .end method
 
 .method private openPanelsAfterRestore()V
@@ -4357,7 +4388,13 @@
     if-eqz v38, :cond_1a
 
     .line 2790
-    const/16 v38, -0x2
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+
+    move-result-object v38
+
+    invoke-static/range {v38 .. v38}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getFloatingWindowWidth(Landroid/content/Context;)I
+
+    move-result v38
 
     const/16 v39, -0x2
 
@@ -5706,13 +5743,11 @@
     if-eqz v38, :cond_27
 
     .line 2973
-    const v38, 0x1090098
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
 
-    move-object/from16 v0, p0
+    move-result-object v19
 
-    move/from16 v1, v38
-
-    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getResource(I)I
+    invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarOverlayResourceId(Landroid/content/Context;)I
 
     move-result v19
 
@@ -5722,13 +5757,11 @@
     .line 2975
     .end local v19           #layoutResource:I
     :cond_27
-    const v38, 0x1090097
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
 
-    move-object/from16 v0, p0
+    move-result-object v19
 
-    move/from16 v1, v38
-
-    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getResource(I)I
+    invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarResourceId(Landroid/content/Context;)I
 
     move-result v19
 
@@ -7034,6 +7067,18 @@
     invoke-static/range {v38 .. v39}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_16
+.end method
+
+.method getActionBarView()Lcom/android/internal/widget/ActionBarView;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
+
+    return-object v0
 .end method
 
 .method getAudioManager()Landroid/media/AudioManager;

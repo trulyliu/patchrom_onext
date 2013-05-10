@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/internal/policy/impl/LockPatternKeyguardView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/internal/policy/impl/LockPatternKeyguardView;->createKeyguardScreenCallback()Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -1147,7 +1147,7 @@
     .line 628
     .local v4, showTimeout:Z
     :goto_3
-    if-eqz v5, :cond_5
+    #if-eqz v5, :cond_5
 
     iget-object v8, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$6;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 

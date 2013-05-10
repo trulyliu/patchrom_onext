@@ -490,9 +490,9 @@
     iput-object p2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mCallback:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     .line 393
-    new-instance v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    new-instance v0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;
 
-    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -2160,7 +2160,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
 
     .line 1650
     :cond_2
@@ -2644,7 +2644,7 @@
     :cond_1
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowing:Z
 
@@ -3242,7 +3242,7 @@
     throw v0
 .end method
 
-.method private playSounds(Z)V
+.method protected playSounds(Z)V
     .locals 8
     .parameter "locked"
 
@@ -5931,6 +5931,20 @@
     iput-boolean p1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mNeedToShowKeyguard:Z
 
     goto :goto_0
+.end method
+
+.method suppressNextLockSound()V
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mSuppressNextLockSound:Z
+
+    return-void
 .end method
 
 .method public setNeedToShowKeyguardAnimation(Z)V
