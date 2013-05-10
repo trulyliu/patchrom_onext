@@ -1,15 +1,15 @@
-From 360cd093d7732ad1dccb69c4f1312050b83dbd99 Mon Sep 17 00:00:00 2001
+From 5bef8033cfcfa890dad74db91794bb91791816e7 Mon Sep 17 00:00:00 2001
 From: wangwei_b <wangwei_b@xiaomi.com>
-Date: Thu, 13 Dec 2012 17:44:36 +0800
+Date: Wed, 13 Mar 2013 14:59:13 +0800
 Subject: [PATCH] porting htc wifi ap
 
-Change-Id: If13e52f472dac04fcadbbabe0d7dc77f1b0bbeee
+Change-Id: I8458e683cec64f89c05808536eb5069739aa78fb
 Signed-off-by: wangwei_b <wangwei_b@xiaomi.com>
 ---
  Settings/res/xml/tether_prefs.xml                  |    4 +++-
  .../com/android/settings/TetherSettings.smali      |   10 ++++++++--
- .../com/android/settings/wifi/WifiApEnabler.smali  |    9 ++++++++-
- 3 files changed, 19 insertions(+), 4 deletions(-)
+ .../com/android/settings/wifi/WifiApEnabler.smali  |    8 +++++++-
+ 3 files changed, 18 insertions(+), 4 deletions(-)
 
 --- a/Settings/res/xml/tether_prefs.xml
 +++ b/Settings/res/xml/tether_prefs.xml
@@ -40,23 +40,22 @@ Signed-off-by: wangwei_b <wangwei_b@xiaomi.com>
  
      aput-object v6, v5, v7
  
-@@ -1994,7 +2000,7 @@
+@@ -2031,7 +2037,7 @@
+     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
  
-     if-ne p2, v6, :cond_0
- 
--    invoke-virtual {p0, v7}, Lcom/android/settings/TetherSettings;->showDialog(I)V
-+    #invoke-virtual {p0, v7}, Lcom/android/settings/TetherSettings;->showDialog(I)V
+     :cond_6
+-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/TetherSettings;->startActivityForResult(Landroid/content/Intent;I)V
++    #invoke-virtual {p0, v0, v1}, Lcom/android/settings/TetherSettings;->startActivityForResult(Landroid/content/Intent;I)V
  
      goto :goto_0
- .end method
+ 
 --- a/Settings/smali/com/android/settings/wifi/WifiApEnabler.smali
 +++ b/Settings/smali/com/android/settings/wifi/WifiApEnabler.smali
-@@ -648,7 +648,14 @@
+@@ -648,7 +648,13 @@
  
      .restart local v0       #s:Ljava/lang/String;
      :cond_0
 -    iget-object v0, p1, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
-+
 +    invoke-static {p1}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiConfiguration;->getHtcWrapWifiApProfile(Landroid/net/wifi/WifiConfiguration;)Lcom/htc/wrap/android/net/wifi/HtcWrapWifiConfiguration$HtcWrapHotspotProfile;
 +
 +    move-result-object v0
