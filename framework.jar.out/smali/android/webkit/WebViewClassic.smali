@@ -31823,7 +31823,7 @@
     return-void
 .end method
 
-.method sendOurVisibleRect()Landroid/graphics/Rect;
+.method public sendOurVisibleRect()Landroid/graphics/Rect;
     .locals 8
 
     .prologue

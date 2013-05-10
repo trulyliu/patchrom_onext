@@ -11,6 +11,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/preference/Preference$BaseSavedState;,
+        Landroid/preference/Preference$Injector;,
         Landroid/preference/Preference$OnPreferenceChangeInternalListener;,
         Landroid/preference/Preference$OnPreferenceClickListener;,
         Landroid/preference/Preference$OnPreferenceChangeListener;
@@ -86,6 +87,12 @@
 .field private mPersistent:Z
 
 .field private mPreferenceManager:Landroid/preference/PreferenceManager;
+
+.field mPreferenceParent:Landroid/preference/PreferenceGroup;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field private mRequiresKey:Z
 
@@ -415,6 +422,28 @@
         :pswitch_d
         :pswitch_5
     .end packed-switch
+.end method
+
+.method static synthetic access$000(Landroid/preference/Preference;)Landroid/content/Context;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 86
+    iget-object v0, p0, Landroid/preference/Preference;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$100(Landroid/preference/Preference;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 86
+    iget v0, p0, Landroid/preference/Preference;->mWidgetLayoutResId:I
+
+    return v0
 .end method
 
 .method private dispatchSetInitialValue()V
@@ -1744,6 +1773,8 @@
     const/4 v5, 0x0
 
     .line 500
+    invoke-static {p0, p1}, Landroid/preference/Preference$Injector;->onBindView(Landroid/preference/Preference;Landroid/view/View;)V
+
     const v7, 0x1020016
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -2861,6 +2892,19 @@
 
     .line 576
     :cond_0
+    return-void
+.end method
+
+.method public setParent(Landroid/preference/PreferenceGroup;)V
+    .locals 0
+    .parameter "parent"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iput-object p1, p0, Landroid/preference/Preference;->mPreferenceParent:Landroid/preference/PreferenceGroup;
+
     return-void
 .end method
 

@@ -259,7 +259,7 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 269
-    .local v0, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/LinkSpec;>;"
+    .local v0, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/Linkify$LinkSpec;>;"
     and-int/lit8 v1, p1, 0x1
 
     if-eqz v1, :cond_2
@@ -421,22 +421,22 @@
 
     move-result-object v8
 
-    check-cast v8, Landroid/text/util/LinkSpec;
+    check-cast v8, Landroid/text/util/Linkify$LinkSpec;
 
     .line 305
-    .local v8, link:Landroid/text/util/LinkSpec;
-    iget-object v1, v8, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+    .local v8, link:Landroid/text/util/Linkify$LinkSpec;
+    iget-object v1, v8, Landroid/text/util/Linkify$LinkSpec;->url:Ljava/lang/String;
 
-    iget v2, v8, Landroid/text/util/LinkSpec;->start:I
+    iget v2, v8, Landroid/text/util/Linkify$LinkSpec;->start:I
 
-    iget v3, v8, Landroid/text/util/LinkSpec;->end:I
+    iget v3, v8, Landroid/text/util/Linkify$LinkSpec;->end:I
 
     invoke-static {v1, v2, v3, p0}, Landroid/text/util/Linkify;->applyLink(Ljava/lang/String;IILandroid/text/Spannable;)V
 
     goto :goto_2
 
     .line 308
-    .end local v8           #link:Landroid/text/util/LinkSpec;
+    .end local v8           #link:Landroid/text/util/Linkify$LinkSpec;
     :cond_8
     const/4 v1, 0x1
 
@@ -761,7 +761,7 @@
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 735
-    .local v2, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/LinkSpec;>;"
+    .local v2, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/Linkify$LinkSpec;>;"
     and-int/lit8 v3, p1, 0x1
 
     if-eqz v3, :cond_2
@@ -1270,10 +1270,10 @@
 
     move-result-object v14
 
-    check-cast v14, Landroid/text/util/LinkSpec;
+    check-cast v14, Landroid/text/util/Linkify$LinkSpec;
 
     .line 805
-    .local v14, link:Landroid/text/util/LinkSpec;
+    .local v14, link:Landroid/text/util/Linkify$LinkSpec;
     const/4 v3, 0x1
 
     :try_start_2
@@ -1281,7 +1281,7 @@
 
     const/4 v4, 0x0
 
-    iget-object v5, v14, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+    iget-object v5, v14, Landroid/text/util/Linkify$LinkSpec;->url:Ljava/lang/String;
 
     aput-object v5, v3, v4
 
@@ -1322,9 +1322,9 @@
     .line 818
     :cond_d
     :goto_8
-    iget v3, v14, Landroid/text/util/LinkSpec;->start:I
+    iget v3, v14, Landroid/text/util/Linkify$LinkSpec;->start:I
 
-    iget v4, v14, Landroid/text/util/LinkSpec;->end:I
+    iget v4, v14, Landroid/text/util/Linkify$LinkSpec;->end:I
 
     const/16 v5, 0x21
 
@@ -1338,7 +1338,7 @@
 
     .line 790
     .end local v12           #i$:Ljava/util/Iterator;
-    .end local v14           #link:Landroid/text/util/LinkSpec;
+    .end local v14           #link:Landroid/text/util/Linkify$LinkSpec;
     .end local v16           #setExtraFlagsMethod:Ljava/lang/reflect/Method;
     .end local v17           #span:Ljava/lang/Object;
     :catch_0
@@ -1424,7 +1424,7 @@
     .line 806
     .end local v10           #e:Ljava/lang/Exception;
     .restart local v12       #i$:Ljava/util/Iterator;
-    .restart local v14       #link:Landroid/text/util/LinkSpec;
+    .restart local v14       #link:Landroid/text/util/Linkify$LinkSpec;
     :catch_2
     move-exception v10
 
@@ -1507,7 +1507,7 @@
 
     .line 821
     .end local v10           #e:Ljava/lang/Exception;
-    .end local v14           #link:Landroid/text/util/LinkSpec;
+    .end local v14           #link:Landroid/text/util/Linkify$LinkSpec;
     .end local v17           #span:Ljava/lang/Object;
     :cond_e
     const/4 v3, 0x1
@@ -1643,7 +1643,7 @@
     goto :goto_0
 .end method
 
-.method private static final applyLink(Ljava/lang/String;IILandroid/text/Spannable;)V
+.method public static final applyLink(Ljava/lang/String;IILandroid/text/Spannable;)V
     .locals 2
     .parameter "url"
     .parameter "start"
@@ -1684,7 +1684,7 @@
     goto :goto_0
 .end method
 
-.method private static final gatherLinks(Ljava/util/ArrayList;Landroid/text/Spannable;Ljava/util/regex/Pattern;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)V
+.method public static final gatherLinks(Ljava/util/ArrayList;Landroid/text/Spannable;Ljava/util/regex/Pattern;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)V
     .locals 6
     .parameter
     .parameter "s"
@@ -1697,7 +1697,7 @@
             "(",
             "Ljava/util/ArrayList",
             "<",
-            "Landroid/text/util/LinkSpec;",
+            "Landroid/text/util/Linkify$LinkSpec;",
             ">;",
             "Landroid/text/Spannable;",
             "Ljava/util/regex/Pattern;",
@@ -1711,7 +1711,7 @@
 
     .prologue
     .line 504
-    .local p0, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/LinkSpec;>;"
+    .local p0, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/Linkify$LinkSpec;>;"
     invoke-virtual {p2, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v1
@@ -1749,12 +1749,12 @@
 
     .line 511
     :cond_1
-    new-instance v2, Landroid/text/util/LinkSpec;
+    new-instance v2, Landroid/text/util/Linkify$LinkSpec;
 
-    invoke-direct {v2}, Landroid/text/util/LinkSpec;-><init>()V
+    invoke-direct {v2}, Landroid/text/util/Linkify$LinkSpec;-><init>()V
 
     .line 512
-    .local v2, spec:Landroid/text/util/LinkSpec;
+    .local v2, spec:Landroid/text/util/Linkify$LinkSpec;
     const/4 v5, 0x0
 
     invoke-virtual {v1, v5}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -1767,13 +1767,13 @@
 
     .line 514
     .local v4, url:Ljava/lang/String;
-    iput-object v4, v2, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+    iput-object v4, v2, Landroid/text/util/Linkify$LinkSpec;->url:Ljava/lang/String;
 
     .line 515
-    iput v3, v2, Landroid/text/util/LinkSpec;->start:I
+    iput v3, v2, Landroid/text/util/Linkify$LinkSpec;->start:I
 
     .line 516
-    iput v0, v2, Landroid/text/util/LinkSpec;->end:I
+    iput v0, v2, Landroid/text/util/Linkify$LinkSpec;->end:I
 
     .line 518
     invoke-virtual {p0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1782,14 +1782,14 @@
 
     .line 521
     .end local v0           #end:I
-    .end local v2           #spec:Landroid/text/util/LinkSpec;
+    .end local v2           #spec:Landroid/text/util/Linkify$LinkSpec;
     .end local v3           #start:I
     .end local v4           #url:Ljava/lang/String;
     :cond_2
     return-void
 .end method
 
-.method private static final gatherMapLinks(Ljava/util/ArrayList;Landroid/text/Spannable;)V
+.method public static final gatherMapLinks(Ljava/util/ArrayList;Landroid/text/Spannable;)V
     .locals 11
     .parameter
     .parameter "s"
@@ -1798,7 +1798,7 @@
             "(",
             "Ljava/util/ArrayList",
             "<",
-            "Landroid/text/util/LinkSpec;",
+            "Landroid/text/util/Linkify$LinkSpec;",
             ">;",
             "Landroid/text/Spannable;",
             ")V"
@@ -1807,7 +1807,7 @@
 
     .prologue
     .line 524
-    .local p0, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/LinkSpec;>;"
+    .local p0, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/Linkify$LinkSpec;>;"
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v8
@@ -1843,12 +1843,12 @@
     .line 535
     .restart local v7       #start:I
     :cond_1
-    new-instance v6, Landroid/text/util/LinkSpec;
+    new-instance v6, Landroid/text/util/Linkify$LinkSpec;
 
-    invoke-direct {v6}, Landroid/text/util/LinkSpec;-><init>()V
+    invoke-direct {v6}, Landroid/text/util/Linkify$LinkSpec;-><init>()V
 
     .line 536
-    .local v6, spec:Landroid/text/util/LinkSpec;
+    .local v6, spec:Landroid/text/util/Linkify$LinkSpec;
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -1861,12 +1861,12 @@
     .local v4, end:I
     add-int v9, v1, v7
 
-    iput v9, v6, Landroid/text/util/LinkSpec;->start:I
+    iput v9, v6, Landroid/text/util/Linkify$LinkSpec;->start:I
 
     .line 540
     add-int v9, v1, v4
 
-    iput v9, v6, Landroid/text/util/LinkSpec;->end:I
+    iput v9, v6, Landroid/text/util/Linkify$LinkSpec;->end:I
 
     .line 541
     invoke-virtual {v8, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -1909,7 +1909,7 @@
 
     move-result-object v9
 
-    iput-object v9, v6, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+    iput-object v9, v6, Landroid/text/util/Linkify$LinkSpec;->url:Ljava/lang/String;
 
     .line 553
     invoke-virtual {p0, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1925,7 +1925,7 @@
     goto :goto_0
 .end method
 
-.method private static final makeUrl(Ljava/lang/String;[Ljava/lang/String;Ljava/util/regex/Matcher;Landroid/text/util/Linkify$TransformFilter;)Ljava/lang/String;
+.method public static final makeUrl(Ljava/lang/String;[Ljava/lang/String;Ljava/util/regex/Matcher;Landroid/text/util/Linkify$TransformFilter;)Ljava/lang/String;
     .locals 9
     .parameter "url"
     .parameter "prefixes"
@@ -2065,7 +2065,7 @@
     goto :goto_0
 .end method
 
-.method private static final pruneOverlaps(Ljava/util/ArrayList;)V
+.method public static final pruneOverlaps(Ljava/util/ArrayList;)V
     .locals 9
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -2073,20 +2073,20 @@
             "(",
             "Ljava/util/ArrayList",
             "<",
-            "Landroid/text/util/LinkSpec;",
+            "Landroid/text/util/Linkify$LinkSpec;",
             ">;)V"
         }
     .end annotation
 
     .prologue
     .line 558
-    .local p0, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/LinkSpec;>;"
+    .local p0, links:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/text/util/Linkify$LinkSpec;>;"
     new-instance v2, Landroid/text/util/Linkify$5;
 
     invoke-direct {v2}, Landroid/text/util/Linkify$5;-><init>()V
 
     .line 584
-    .local v2, c:Ljava/util/Comparator;,"Ljava/util/Comparator<Landroid/text/util/LinkSpec;>;"
+    .local v2, c:Ljava/util/Comparator;,"Ljava/util/Comparator<Landroid/text/util/Linkify$LinkSpec;>;"
     invoke-static {p0, v2}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     .line 586
@@ -2110,40 +2110,40 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/text/util/LinkSpec;
+    check-cast v0, Landroid/text/util/Linkify$LinkSpec;
 
     .line 591
-    .local v0, a:Landroid/text/util/LinkSpec;
+    .local v0, a:Landroid/text/util/Linkify$LinkSpec;
     add-int/lit8 v6, v3, 0x1
 
     invoke-virtual {p0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Landroid/text/util/LinkSpec;
+    check-cast v1, Landroid/text/util/Linkify$LinkSpec;
 
     .line 592
-    .local v1, b:Landroid/text/util/LinkSpec;
+    .local v1, b:Landroid/text/util/Linkify$LinkSpec;
     const/4 v5, -0x1
 
     .line 594
     .local v5, remove:I
-    iget v6, v0, Landroid/text/util/LinkSpec;->start:I
+    iget v6, v0, Landroid/text/util/Linkify$LinkSpec;->start:I
 
-    iget v7, v1, Landroid/text/util/LinkSpec;->start:I
+    iget v7, v1, Landroid/text/util/Linkify$LinkSpec;->start:I
 
     if-gt v6, v7, :cond_3
 
-    iget v6, v0, Landroid/text/util/LinkSpec;->end:I
+    iget v6, v0, Landroid/text/util/Linkify$LinkSpec;->end:I
 
-    iget v7, v1, Landroid/text/util/LinkSpec;->start:I
+    iget v7, v1, Landroid/text/util/Linkify$LinkSpec;->start:I
 
     if-le v6, v7, :cond_3
 
     .line 595
-    iget v6, v1, Landroid/text/util/LinkSpec;->end:I
+    iget v6, v1, Landroid/text/util/Linkify$LinkSpec;->end:I
 
-    iget v7, v0, Landroid/text/util/LinkSpec;->end:I
+    iget v7, v0, Landroid/text/util/Linkify$LinkSpec;->end:I
 
     if-gt v6, v7, :cond_1
 
@@ -2168,15 +2168,15 @@
 
     .line 597
     :cond_1
-    iget v6, v0, Landroid/text/util/LinkSpec;->end:I
+    iget v6, v0, Landroid/text/util/Linkify$LinkSpec;->end:I
 
-    iget v7, v0, Landroid/text/util/LinkSpec;->start:I
+    iget v7, v0, Landroid/text/util/Linkify$LinkSpec;->start:I
 
     sub-int/2addr v6, v7
 
-    iget v7, v1, Landroid/text/util/LinkSpec;->end:I
+    iget v7, v1, Landroid/text/util/Linkify$LinkSpec;->end:I
 
-    iget v8, v1, Landroid/text/util/LinkSpec;->start:I
+    iget v8, v1, Landroid/text/util/Linkify$LinkSpec;->start:I
 
     sub-int/2addr v7, v8
 
@@ -2189,15 +2189,15 @@
 
     .line 599
     :cond_2
-    iget v6, v0, Landroid/text/util/LinkSpec;->end:I
+    iget v6, v0, Landroid/text/util/Linkify$LinkSpec;->end:I
 
-    iget v7, v0, Landroid/text/util/LinkSpec;->start:I
+    iget v7, v0, Landroid/text/util/Linkify$LinkSpec;->start:I
 
     sub-int/2addr v6, v7
 
-    iget v7, v1, Landroid/text/util/LinkSpec;->end:I
+    iget v7, v1, Landroid/text/util/Linkify$LinkSpec;->end:I
 
-    iget v8, v1, Landroid/text/util/LinkSpec;->start:I
+    iget v8, v1, Landroid/text/util/Linkify$LinkSpec;->start:I
 
     sub-int/2addr v7, v8
 
@@ -2216,8 +2216,8 @@
     goto :goto_0
 
     .line 613
-    .end local v0           #a:Landroid/text/util/LinkSpec;
-    .end local v1           #b:Landroid/text/util/LinkSpec;
+    .end local v0           #a:Landroid/text/util/Linkify$LinkSpec;
+    .end local v1           #b:Landroid/text/util/Linkify$LinkSpec;
     .end local v5           #remove:I
     :cond_4
     return-void

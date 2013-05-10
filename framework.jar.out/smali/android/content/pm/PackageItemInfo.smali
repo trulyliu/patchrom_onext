@@ -379,10 +379,6 @@
 
     .prologue
     .line 144
-    iget v3, p0, Landroid/content/pm/PackageItemInfo;->icon:I
-
-    if-eqz v3, :cond_1
-
     .line 145
     iget-object v3, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
