@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 205
+    .line 204
     iput-object p1, p0, Lcom/android/stocksettings/StockSettings$UsbStateReceiver;->this$0:Lcom/android/stocksettings/StockSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 209
+    .line 208
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 210
+    .line 209
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.hardware.usb.action.USB_STATE"
 
@@ -57,7 +57,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 211
+    .line 210
     iget-object v1, p0, Lcom/android/stocksettings/StockSettings$UsbStateReceiver;->this$0:Lcom/android/stocksettings/StockSettings;
 
     const-string v2, "connected"
@@ -69,17 +69,17 @@
     #setter for: Lcom/android/stocksettings/StockSettings;->mUsbConnected:Z
     invoke-static {v1, v2}, Lcom/android/stocksettings/StockSettings;->access$002(Lcom/android/stocksettings/StockSettings;Z)Z
 
-    .line 217
+    .line 216
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/stocksettings/StockSettings$UsbStateReceiver;->this$0:Lcom/android/stocksettings/StockSettings;
 
     invoke-virtual {v1}, Lcom/android/stocksettings/StockSettings;->updateInternetPTState()V
 
-    .line 218
+    .line 217
     return-void
 
-    .line 212
+    .line 211
     :cond_1
     const-string v1, "android.intent.action.MEDIA_SHARED"
 
@@ -89,7 +89,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 213
+    .line 212
     iget-object v1, p0, Lcom/android/stocksettings/StockSettings$UsbStateReceiver;->this$0:Lcom/android/stocksettings/StockSettings;
 
     const/4 v2, 0x1
@@ -99,7 +99,7 @@
 
     goto :goto_0
 
-    .line 214
+    .line 213
     :cond_2
     const-string v1, "android.intent.action.MEDIA_UNSHARED"
 
@@ -109,7 +109,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 215
+    .line 214
     iget-object v1, p0, Lcom/android/stocksettings/StockSettings$UsbStateReceiver;->this$0:Lcom/android/stocksettings/StockSettings;
 
     #setter for: Lcom/android/stocksettings/StockSettings;->mMassStorageActive:Z

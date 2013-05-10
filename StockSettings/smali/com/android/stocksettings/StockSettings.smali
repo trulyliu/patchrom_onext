@@ -81,26 +81,26 @@
     .prologue
     const/16 v12, 0x5f
 
-    .line 128
+    .line 127
     const-string v1, "file:///android_asset/html/%y%z/notice_info.html"
 
-    .line 129
+    .line 128
     .local v1, HELP_URL:Ljava/lang/String;
     const-string v0, "html/%y%z/notice_info.html"
 
-    .line 131
+    .line 130
     .local v0, HELP_PATH:Ljava/lang/String;
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v5
 
-    .line 132
+    .line 131
     .local v5, locale:Ljava/util/Locale;
     invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v2
 
-    .line 134
+    .line 133
     .local v2, am:Landroid/content/res/AssetManager;
     const-string v9, "%y"
 
@@ -116,7 +116,7 @@
 
     move-result-object v6
 
-    .line 135
+    .line 134
     .local v6, path:Ljava/lang/String;
     const-string v9, "%z"
 
@@ -148,14 +148,14 @@
 
     move-result-object v6
 
-    .line 136
+    .line 135
     const/4 v8, 0x1
 
-    .line 137
+    .line 136
     .local v8, useCountry:Z
     const/4 v4, 0x0
 
-    .line 139
+    .line 138
     .local v4, is:Ljava/io/InputStream;
     :try_start_0
     invoke-virtual {v2, v6}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
@@ -165,16 +165,16 @@
 
     move-result-object v4
 
-    .line 143
+    .line 142
     if-eqz v4, :cond_0
 
-    .line 145
+    .line 144
     :try_start_1
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 151
+    .line 150
     :cond_0
     :goto_0
     const-string v9, "%y"
@@ -191,7 +191,7 @@
 
     move-result-object v7
 
-    .line 152
+    .line 151
     .local v7, url:Ljava/lang/String;
     const-string v10, "%z"
 
@@ -226,22 +226,22 @@
 
     move-result-object v7
 
-    .line 154
+    .line 153
     return-object v7
 
-    .line 140
+    .line 139
     .end local v7           #url:Ljava/lang/String;
     :catch_0
     move-exception v3
 
-    .line 141
+    .line 140
     .local v3, ignored:Ljava/lang/Exception;
     const/4 v8, 0x0
 
-    .line 143
+    .line 142
     if-eqz v4, :cond_0
 
-    .line 145
+    .line 144
     :try_start_2
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
     :try_end_2
@@ -249,38 +249,38 @@
 
     goto :goto_0
 
-    .line 146
+    .line 145
     :catch_1
     move-exception v9
 
     goto :goto_0
 
-    .line 143
+    .line 142
     .end local v3           #ignored:Ljava/lang/Exception;
     :catchall_0
     move-exception v9
 
     if-eqz v4, :cond_1
 
-    .line 145
+    .line 144
     :try_start_3
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 146
+    .line 145
     :cond_1
     :goto_2
     throw v9
 
-    .line 152
+    .line 151
     .restart local v7       #url:Ljava/lang/String;
     :cond_2
     const-string v9, ""
 
     goto :goto_1
 
-    .line 146
+    .line 145
     .end local v7           #url:Ljava/lang/String;
     :catch_2
     move-exception v9
@@ -297,22 +297,22 @@
     .locals 6
 
     .prologue
-    .line 158
+    .line 157
     invoke-direct {p0}, Lcom/android/stocksettings/StockSettings;->createNoticeInfoUrl()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 160
+    .line 159
     .local v2, url:Ljava/lang/String;
     new-instance v0, Landroid/webkit/WebView;
 
     invoke-direct {v0, p0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
 
-    .line 161
+    .line 160
     .local v0, contentView:Landroid/webkit/WebView;
     invoke-virtual {v0, v2}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    .line 163
+    .line 162
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
     const/4 v4, 0x3
@@ -347,7 +347,7 @@
 
     move-result-object v1
 
-    .line 169
+    .line 168
     .local v1, dialog:Landroid/app/Dialog;
     return-void
 .end method
@@ -365,7 +365,7 @@
 
     const/4 v2, 0x0
 
-    .line 184
+    .line 183
     iget-object v3, p0, Lcom/android/stocksettings/StockSettings;->mHtcGestures:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -385,7 +385,7 @@
     :goto_0
     invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 185
+    .line 184
     iget-object v0, p0, Lcom/android/stocksettings/StockSettings;->mHtcFastboot:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -403,19 +403,19 @@
     :goto_1
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 186
+    .line 185
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 184
+    .line 183
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 185
+    .line 184
     goto :goto_1
 .end method
 
@@ -517,14 +517,14 @@
     .parameter "item"
 
     .prologue
-    .line 173
+    .line 172
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 179
+    .line 178
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -532,16 +532,16 @@
     :goto_0
     return v0
 
-    .line 175
+    .line 174
     :pswitch_0
     invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->finish()V
 
-    .line 176
+    .line 175
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 173
+    .line 172
     nop
 
     :pswitch_data_0
@@ -639,10 +639,10 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 115
+    .line 114
     invoke-direct {p0}, Lcom/android/stocksettings/StockSettings;->showNotice()V
 
-    .line 124
+    .line 123
     .end local v0           #selectResult:I
     :cond_1
     :goto_2
@@ -708,7 +708,7 @@
     .line 106
     goto :goto_1
 
-    .line 118
+    .line 117
     .restart local v0       #selectResult:I
     :cond_6
     iget-object v1, p0, Lcom/android/stocksettings/StockSettings;->mHtcInternetPassThrough:Landroid/preference/CheckBoxPreference;
@@ -797,7 +797,7 @@
 
     const/4 v3, 0x0
 
-    .line 189
+    .line 188
     const-string v4, "connectivity"
 
     invoke-virtual {p0, v4}, Lcom/android/stocksettings/StockSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -806,7 +806,7 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
-    .line 192
+    .line 191
     .local v0, cm:Landroid/net/ConnectivityManager;
     iget-boolean v4, p0, Lcom/android/stocksettings/StockSettings;->mUsbConnected:Z
 
@@ -818,17 +818,17 @@
 
     move v1, v2
 
-    .line 194
+    .line 193
     .local v1, usbAvailable:Z
     :goto_0
     if-eqz v1, :cond_2
 
-    .line 195
+    .line 194
     iget-object v4, p0, Lcom/android/stocksettings/StockSettings;->mHtcInternetPassThrough:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v4, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 196
+    .line 195
     iget-object v4, p0, Lcom/android/stocksettings/StockSettings;->mHtcInternetPassThrough:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -846,7 +846,7 @@
     :goto_1
     invoke-virtual {v4, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 203
+    .line 202
     :goto_2
     return-void
 
@@ -854,28 +854,28 @@
     :cond_0
     move v1, v3
 
-    .line 192
+    .line 191
     goto :goto_0
 
     .restart local v1       #usbAvailable:Z
     :cond_1
     move v2, v3
 
-    .line 196
+    .line 195
     goto :goto_1
 
-    .line 199
+    .line 198
     :cond_2
     iget-object v2, p0, Lcom/android/stocksettings/StockSettings;->mHtcInternetPassThrough:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 200
+    .line 199
     iget-object v2, p0, Lcom/android/stocksettings/StockSettings;->mHtcInternetPassThrough:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 201
+    .line 200
     invoke-virtual {p0}, Lcom/android/stocksettings/StockSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
