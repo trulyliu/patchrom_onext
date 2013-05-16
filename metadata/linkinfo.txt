@@ -105,3 +105,10 @@ system/xbin/tee|system/xbin/busybox
 system/xbin/xargs|system/xbin/busybox
 system/xbin/which|system/xbin/busybox
 system/xbin/whois|/system/xbin/busybox
+system/xbin/wc|/system/xbin/busybox
+system/xbin/free|/system/xbin/busybox
+system/xbin/head|/system/xbin/busybox
+system/xbin/awk|/system/xbin/busybox
+system/xbin/tr|/system/xbin/busybox
+system/xbin/clear|/system/xbin/busybox
+system/xbin/pgrep|/system/xbin/busybox
