@@ -22,9 +22,11 @@
 
 .field static MAX_HIDDEN_APPS:I = 0x0
 
+.field static final MAX_HIDDEN_APPS_REF:I = 0x46
+
 .field static final MIN_CRASH_INTERVAL:I = 0xea60
 
-.field static final MIN_HIDDEN_APPS:I = 0x2
+.field static final MIN_HIDDEN_APPS:I = 0xf
 
 .field static final PAGE_SIZE:I = 0x1000
 
@@ -62,7 +64,7 @@
     .locals 9
 
     .prologue
-    const/16 v4, 0xf
+    const/16 v4, 0x46
 
     const/4 v8, -0x1
 
@@ -176,8 +178,6 @@
     .line 132
     sget v5, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
 
-    if-eq v1, v5, :cond_1
-
     .line 133
     sput v1, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
 
@@ -212,33 +212,25 @@
     return-void
 
     .line 135
-    :cond_1
-    if-eq v2, v8, :cond_3
-
     const/16 v5, 0x200
 
-    if-gt v2, v5, :cond_3
+    if-gt v2, v5, :cond_1
 
     .line 136
-    if-eqz v0, :cond_2
+    const/16 v4, 0x46
 
-    const/16 v4, 0xa
-
-    :cond_2
     sput v4, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
 
     goto :goto_0
 
     .line 139
-    :cond_3
-    if-eq v2, v8, :cond_0
-
+    :cond_1
     const/16 v4, 0x800
 
     if-lt v2, v4, :cond_0
 
     .line 140
-    const/16 v4, 0x14
+    const/16 v4, 0x46
 
     sput v4, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
 

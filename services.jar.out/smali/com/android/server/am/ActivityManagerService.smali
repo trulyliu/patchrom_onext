@@ -156,7 +156,9 @@
 #the value of this static final field might be set in the static constructor
 .field static final MAX_RECENT_TASKS:I = 0x0
 
-.field static final MAX_SERVICE_INACTIVITY:I = 0x1b7740
+.field static final MAX_RECENT_TASKS_REF:I = 0x32
+
+.field static final MAX_SERVICE_INACTIVITY:I = 0x5265c00
 
 #the value of this static final field might be set in the static constructor
 .field static final MAX_VISIBLE_TASKS:I = 0x0
@@ -11387,7 +11389,7 @@
 
     iget-wide v5, v0, Lcom/android/server/am/ServiceRecord;->lastActivity:J
 
-    const-wide/32 v37, 0x1b7740
+    const-wide/32 v37, 0x5265c00
 
     add-long v5, v5, v37
 
@@ -11778,7 +11780,7 @@
 
     iget-wide v5, v0, Lcom/android/server/am/ServiceRecord;->lastActivity:J
 
-    const-wide/32 v37, 0x1b7740
+    const-wide/32 v37, 0x5265c00
 
     add-long v5, v5, v37
 
@@ -11789,7 +11791,7 @@
     .line 15328
     move/from16 v0, v16
 
-    if-le v11, v0, :cond_35
+    if-ge v11, v0, :cond_35
 
     .line 15329
     const-string v12, "bound-bg-services"
@@ -35227,7 +35229,7 @@
     iput-wide v9, p1, Lcom/android/server/am/ProcessRecord;->lruWeight:J
 
     .line 1997
-    const/4 v8, 0x2
+    const/16 v8, 0xf
 
     goto/16 :goto_0
 
@@ -35242,7 +35244,7 @@
     iput-wide v9, p1, Lcom/android/server/am/ProcessRecord;->lruWeight:J
 
     .line 2004
-    const/4 v8, 0x2
+    const/16 v8, 0xf
 
     goto/16 :goto_0
 
@@ -68530,13 +68532,9 @@
     :cond_4
     if-nez p3, :cond_5
 
-    const/4 v8, 0x6
-
     if-ge v7, v8, :cond_5
 
     .line 8197
-    const/4 v7, 0x6
-
     .line 8200
     :cond_5
     const-string v8, "ActivityManager"
@@ -87149,7 +87147,7 @@
     .line 16182
     sget v19, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
 
-    div-int/lit8 v19, v19, 0x2
+    div-int/lit8 v19, v19, 0x9
 
     move/from16 v0, v19
 
@@ -87210,7 +87208,7 @@
     .line 16191
     sget v19, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
 
-    div-int/lit8 v19, v19, 0x5
+    div-int/lit8 v19, v19, 0x9
 
     move/from16 v0, v19
 
@@ -87350,7 +87348,7 @@
     :cond_e
     sget v19, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
 
-    div-int/lit8 v19, v19, 0x3
+    div-int/lit8 v19, v19, 0x9
 
     move/from16 v0, v19
 
