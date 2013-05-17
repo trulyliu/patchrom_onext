@@ -225,7 +225,7 @@
 
     .line 139
     :cond_1
-    const/16 v4, 0x800
+    const/16 v4, 0x46
 
     if-lt v2, v4, :cond_0
 
