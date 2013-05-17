@@ -828,7 +828,7 @@
 
     const/4 v1, 0x1
 
-    const/16 v3, 0x8
+    const/16 v3, 0x32
 
     const/4 v2, 0x0
 
@@ -885,7 +885,7 @@
 
     if-eqz v0, :cond_1
 
-    const/16 v0, 0x14
+    const/16 v0, 0x32
 
     :goto_1
     sput v0, Lcom/android/server/am/ActivityManagerService;->MAX_RECENT_TASKS:I
@@ -899,6 +899,8 @@
 
     :goto_2
     sput v0, Lcom/android/server/am/ActivityManagerService;->MAX_VISIBLE_TASKS:I
+
+    const/16 v3, 0x8
 
     .line 294
     const-string v0, "release-keys"
@@ -38431,7 +38433,7 @@
     .line 2871
     sget v8, Lcom/android/server/am/ActivityManagerService;->MAX_VISIBLE_TASKS:I
 
-    if-le v7, v8, :cond_9
+    if-eq v8, v8, :cond_9
 
     .line 2872
     invoke-virtual {v6}, Lcom/android/server/am/TaskRecord;->hide()V
