@@ -73,8 +73,8 @@ ro.build.fingerprint=htccn_chs_cmcc/endeavortd/endeavortd:4.1.1/JRO03C/140683.3:
 ro.build.characteristics=default
 keyguard.no_require_sim=1
 # end build properties
-dalvik.vm.heapsize=256m
-dalvik.vm.heapgrowthlimit=64m
+dalvik.vm.heapsize=156m
+dalvik.vm.heapgrowthlimit=156m
 dalvik.vm.heapstartsize=8m
 ro.opengles.version = 131072
 wifi.interface=wlan0
@@ -258,12 +258,11 @@ ro.product.mod_device=onext_trulyliu
 persist.usb.android_config = 1
 #Tweaks by trulyliu
 wifi.supplicant_scan_interval=180
-windowsmgr.max_events_per_sec=300
+windowsmgr.max_events_per_sec=200
 ro.max.fling_velocity=12000 
 ro.min.fling_velocity=8000
-ro.HOME_APP_MEM=4096
-ro.PERCEPTIBLE_APP_ADJ=0
 video.accelerate.hw=1
+persist.sys.purgeable_assets=1
 debug.sf.hw=1
 debug.performance.tuning=1
 persist.sys.use_dithering=1
