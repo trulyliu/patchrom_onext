@@ -257,7 +257,7 @@ ro.product.mod_device=onext_trulyliu
 
 persist.usb.android_config = 1
 #Tweaks by trulyliu
-wifi.supplicant_scan_interval=120
+wifi.supplicant_scan_interval=180
 windowsmgr.max_events_per_sec=300
 ro.max.fling_velocity=12000 
 ro.min.fling_velocity=8000
@@ -275,7 +275,7 @@ ro.kernel.checkjni=0
 dalvik.vm.checkjni=0
 pm.sleep_mode=1
 power.saving.mode=1
-ro.ril.disable.power.collapse=1
+ro.ril.disable.power.collapse=0
 persist.sys.NV_FPSLIMIT = 60 (UI FPS) 
 Persist.sys.fw.camera.status=1
 Persist.dmesg.mode=split
