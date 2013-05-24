@@ -68,6 +68,10 @@ local-zip-misc:
 	rm -rf $(ZIP_DIR)/system/media/video
 	rm -f $(ZIP_DIR)/system/bin/su
 
+	@echo beats boot animation
+	rm -f $(ZIP_DIR)/system/media/bootanimation.zip
+	cp other/system_media/bootanimation.zip $(ZIP_DIR)/system/media/
+
 %.phone : out/%.jar
 	@echo push -- to --- phone
 	adb remount
