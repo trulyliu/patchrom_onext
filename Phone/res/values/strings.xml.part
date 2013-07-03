@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="preferred_network_type_gsm_umts_miui">GSM/TD-SCDMA</string>
+</resources>
