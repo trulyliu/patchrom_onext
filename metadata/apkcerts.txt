@@ -294,3 +294,4 @@ name="StockSettings.apk" certificate="build/target/product/security/platform.x50
 name="HtcSettings.apk" certificate="build/target/product/security/platform.x509.pem" private_key="build/target/product/security/platform.pk8"
 name="MarketUpdater.apk" certificate="PRESIGNED" private_key=""
 name="CIMETPCHS.apk" certificate="PRESIGNED" private_key=""
+name="baidushurufa_52.apk" certificate="PRESIGNED" private_key=""
