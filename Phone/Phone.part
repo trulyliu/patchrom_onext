@@ -6,20 +6,24 @@ Subject: [PATCH] Fix incall recoding
 Change-Id: I8458e683cec64f89c05808536eb5069739aa78fb
 Signed-off-by: qingchengl <qingchengl@opera.com>
 ---
- Phone/smali/com/android/phone/MiuiInCallScreen.smali |    2 +-
+ Phone/smali/com/android/phone/MiuiCallNotifier.smali |    2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
---- a/Phone/smali/com/android/phone/MiuiInCallScreen.smali
-+++ b/Phone/smali/com/android/phone/MiuiInCallScreen.smali
-@@ -606,7 +606,7 @@
+--- a/Phone/smali/com/android/phone/MiuiCallNotifier.smali
++++ b/Phone/smali/com/android/phone/MiuiCallNotifier.smali
+@@ -4362,11 +4362,11 @@
  
-     iget-object v8, p0, Lcom/android/phone/MiuiInCallScreen;->mCallRecorder:Lmiui/media/Mp3Recorder;
+     if-eqz v2, :cond_1
  
--    const/4 v9, 0x4
-+    const/4 v9, 0x1
+     iget-object v2, p0, Lcom/android/phone/MiuiCallNotifier;->mCallRecorder:Lmiui/media/Mp3Recorder;
  
-     invoke-virtual {v8, v9}, Lmiui/media/Mp3Recorder;->setAudioSource(I)V
+-    const/4 v3, 0x4
++    const/4 v3, 0x1
  
+     invoke-virtual {v2, v3}, Lmiui/media/Mp3Recorder;->setAudioSource(I)V
+ 
+     :goto_0
+     iget-object v2, p0, Lcom/android/phone/MiuiCallNotifier;->mCallRecorder:Lmiui/media/Mp3Recorder;
 -- 
 1.7.9.5
 
