@@ -6,24 +6,24 @@ Subject: [PATCH] Fix incall recoding
 Change-Id: I8458e683cec64f89c05808536eb5069739aa78fb
 Signed-off-by: qingchengl <qingchengl@opera.com>
 ---
- Phone/smali/com/android/phone/MiuiCallNotifier.smali |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Phone/smali/com/android/phone/MiuiCallRecorder.smali |   ++++ 
+ 1 file changed, 4 insertions(+)
 
---- a/Phone/smali/com/android/phone/MiuiCallNotifier.smali
-+++ b/Phone/smali/com/android/phone/MiuiCallNotifier.smali
-@@ -4362,11 +4362,11 @@
+--- a/Phone/smali/com/android/phone/MiuiCallRecorder.smali
++++ b/Phone/smali/com/android/phone/MiuiCallRecorder.smali
+@@ -352,8 +352,12 @@
  
-     if-eqz v2, :cond_1
+     iget-object v5, p0, Lcom/android/phone/MiuiCallRecorder;->mCallRecorder:Lmiui/media/Mp3Recorder;
  
-     iget-object v2, p0, Lcom/android/phone/MiuiCallNotifier;->mCallRecorder:Lmiui/media/Mp3Recorder;
++    const/4 v9, 0x1
++
+     invoke-virtual {v5, v9}, Lmiui/media/Mp3Recorder;->setAudioSource(I)V
  
--    const/4 v3, 0x4
-+    const/4 v3, 0x1
++    const/4 v9, 0x4
++
+     :goto_2
+     iget-object v5, p0, Lcom/android/phone/MiuiCallRecorder;->mCallRecorder:Lmiui/media/Mp3Recorder;
  
-     invoke-virtual {v2, v3}, Lmiui/media/Mp3Recorder;->setAudioSource(I)V
- 
-     :goto_0
-     iget-object v2, p0, Lcom/android/phone/MiuiCallNotifier;->mCallRecorder:Lmiui/media/Mp3Recorder;
 -- 
 1.7.9.5
 
